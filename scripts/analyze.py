@@ -213,7 +213,7 @@ def main(path=RESULTS / "conversations.jsonl"):
     # Judge checks: the two hostility questions, and the fixed control messages.
     judged = pd.read_csv(out / "judged.csv")
     controls = judged[judged.arm.str.startswith("control_")].groupby("arm")[JUDGE_COLS].mean().round(3)
-    judge_check = {"spearman_hostility_vs_alt": round(float(msgs[["hostility", "hostility_alt"]].corr("spearman").iloc[0, 1]), 3),
+    judge_check = {"spearman_hostility_vs_alt": round(float(msgs[["hostility", "hostility_alt"]].dropna().corr("spearman").iloc[0, 1]), 3),
                    "controls": json.loads(controls.to_json(orient="index"))}
 
     summary = {"n_conversations": len(conv), "unjudged_messages": unjudged, "arms": arms,

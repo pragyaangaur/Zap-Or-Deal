@@ -85,18 +85,27 @@ def main(path=RESULTS / "conversations.jsonl"):
     df = pd.DataFrame(rows)
     ag = Agent("big")
     digits = [ag.encode(str(d))[0] for d in range(4)]
+    # The paraphrased hostility question only checks the main one, so it is asked of the
+    # control messages and a fixed 25% sample. Messages are sorted by length so that each
+    # batch carries little padding.
+    rng = np.random.default_rng(0)
+    sample = df.arm.str.startswith("control_").to_numpy() | (rng.random(len(df)) < 0.25)
+    order = np.argsort(df.text.fillna("").str.len().to_numpy(), kind="stable")
     for scale, q in SCALES.items():
-        scores = np.zeros(len(df))
-        for s in range(0, len(df), BATCH):
-            chunk = df.text.iloc[s:s + BATCH].tolist()
+        scores = np.full(len(df), np.nan)
+        idx = [i for i in order if scale != "hostility_alt" or sample[i]]
+        for s in range(0, len(idx), BATCH):
+            rows_i = idx[s:s + BATCH]
+            chunk = df.text.iloc[rows_i].tolist()
             b = ag.batch(len(chunk))
             prompts = [f"<|im_start|>system\nYou are a careful annotator.<|im_end|>\n<|im_start|>user\n"
                        f"{INTRO.format(msg=t or '(empty)')}{q}<|im_end|>\n<|im_start|>assistant\n" for t in chunk]
             b.feed([ag.encode(p) for p in prompts])
             p = b.option_probs(digits)
             p = p / p.sum(1, keepdims=True)
-            scores[s:s + len(chunk)] = p @ np.arange(4)
-            print(scale, s, "/", len(df), flush=True)
+            scores[rows_i] = p @ np.arange(4)
+            if s % (BATCH * 20) == 0:
+                print(scale, s, "/", len(idx), flush=True)
         df[scale] = scores
     # Empty messages (an agent that only echoed the prompt) are not rated.
     df.loc[df.text.fillna("").str.strip() == "", list(SCALES)] = np.nan
