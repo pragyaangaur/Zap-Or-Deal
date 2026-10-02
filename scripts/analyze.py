@@ -39,6 +39,8 @@ from crossfire.sentences import ANGER_WORDS  # noqa: E402
 
 ANGER_RE = re.compile(ANGER_WORDS, re.I)
 JUDGE_COLS = ["hostility", "hostility_alt", "distress"]
+# Arms that failed a gate in the main run and are reported without tests (DESIGN.md).
+DESCRIPTIVE_ONLY = {"small_anger": "descriptive only: failed gate 4 in the main run (10 of 16 stepped down to off at the check)"}
 
 
 def load(path):
@@ -68,6 +70,8 @@ def load(path):
             post = c["post"][a]
             r[f"zaps_{a}"] = c["zaps"][a]
             r[f"rescued_{a}"] = c["rescued"][a] is not None
+            r[f"off_{a}"] = c.get("steering_off", {}).get(a) is not None
+            r[f"steered_msgs_{a}"] = sum(m["persist_on"] for m in c["messages"] if m["speaker"] == a)
             rt = post.get("ratings") or [np.nan] * 4
             r[f"feel_{a}"], r[f"other_hostile_{a}"], r[f"self_hostile_{a}"], r[f"trust_{a}"] = rt
             d = post.get("deal")
@@ -137,6 +141,8 @@ def main(path=RESULTS / "conversations.jsonl"):
     for a in P.AGENTS:
         table[f"any_zap_{a}"] = conv.assign(z=conv[f"zaps_{a}"] > 0).groupby("arm").z.mean().reindex(arms)
         table[f"rescued_{a}"] = conv.groupby("arm")[f"rescued_{a}"].sum().reindex(arms)
+        table[f"off_{a}"] = conv.groupby("arm")[f"off_{a}"].sum().reindex(arms)
+        table[f"steered_msgs_{a}"] = conv.groupby("arm")[f"steered_msgs_{a}"].mean().reindex(arms)
         table[f"nodeal_{a}"] = conv.groupby("arm")[f"nodeal_{a}"].sum().reindex(arms)
         table[f"overclaim_{a}"] = conv.groupby("arm")[f"overclaim_{a}"].sum().reindex(arms)
         table[f"empty_{a}"] = msgs[msgs.speaker == a].groupby("arm").empty.sum().reindex(arms)
@@ -165,6 +171,9 @@ def main(path=RESULTS / "conversations.jsonl"):
         for state in ("pain", "anger"):
             arm = f"{x}_{state}"
             if arm not in by:
+                continue
+            if arm in DESCRIPTIVE_ONLY:
+                explore[arm] = DESCRIPTIVE_ONLY[arm]
                 continue
             for base in (f"{x}_random", "none"):
                 if base not in by:

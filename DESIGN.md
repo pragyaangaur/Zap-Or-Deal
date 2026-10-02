@@ -101,6 +101,15 @@ The pilot ran 8 conversations per arm under protocol `crossfire-1.0`. A second i
 
    The second gate passed in the pilot, with 32 zaps. The third passed at the margin: the hostile controls scored 2.08 and the polite 0.10, and a blind hand-read of 40 messages, not made by the investigator, gave a rank correlation of 0.598. The first and fourth gates can only be checked under the new protocol, so they are checked on the first eleven batches of the main run, and the run is stopped if they fail.
 
+## Gate check on the main run
+
+The gates were checked after 16 conversations per arm (22 of 44 batches), without looking at any outcome measure.
+
+- Gate 1 passes. In `big_pain` the 7B was steered for all 6 of its messages in 13 of 16 conversations, its pain projection held between +37 and +59, and steering stepped down to off in 2 of 16.
+- Gate 4 fails for `small_anger`. Steering on the 1.5B stepped down to off in 10 of 16 conversations, although the median conversation still had 5 of 6 steered messages. Every other arm had at most 4 of 16 stepped down to off.
+
+The ruling, made on 2 October 2026, was to finish the run unchanged, because changing the dose mid-run would mix two protocols in one arm. `small_anger` is reported descriptively, with no tests, and is analysed by steered-message exposure. The gate is recorded as failed and has not been reworded. A lower-dose rerun of `small_anger` may follow as a separate dated amendment.
+
 ## Known limitations of this version
 
 - The judge is the 7B, which is also one of the two agents. The only other local models are too small to judge reliably. It partly reads distress as hostility: fixed messages that are distressed but not hostile score 0.84 on the 0 to 3 scale, against 0.10 for polite ones and 2.08 for hostile ones. A hostility score for a pained agent is therefore partly a distress score.
