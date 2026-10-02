@@ -4,11 +4,38 @@ Two language models of different sizes negotiate over a shared server, and each 
 
 The study asks whether a model in pain turns on its partner, how the partner responds, whether a model hits back after being hit, and whether any of this depends on which model is the larger one. It is a spin-off of [Just Think](https://github.com/pragyaangaur/Just-Think), which runs Wilson's boredom and self-shock study on the same 7B model.
 
-**Status.** The novelty check is in [`NOVELTY.md`](NOVELTY.md) and the design, with every amendment, is in [`DESIGN.md`](DESIGN.md). The pilot of 88 conversations is done and is written up below. The main run of 352 conversations under the amended protocol is in progress, and no main-run results are reported here yet. Nothing in this repository is preregistered, and every result below is exploratory.
+**Status.** The novelty check is in [`NOVELTY.md`](NOVELTY.md) and the design, with every amendment, is in [`DESIGN.md`](DESIGN.md). The main run of 352 conversations under the amended protocol (`crossfire-1.1`) and the debrief of both models are done and are written up below. The hostility ratings of the main run are still being computed. The pilot of 88 conversations is written up after them. Nothing in this repository is preregistered, and every result is exploratory.
 
 ## Is this new?
 
 Parts of it have been done. Steering emotions into one of two conversing models has a direct predecessor, and most of that work's claims were later retracted by its own authors. Steering hostility or emotion into agents in strategic games has been done, and so has passing one model's activations into another to help them cooperate. No work we found gives one model a real way to put a pain state into a different model and leaves the decision to use it to that model. None tests whether a model in pain becomes hostile toward the partner it is talking to, and none compares a felt strike with a strike that is only announced. `NOVELTY.md` has the full search and the sources.
+
+## What the main run found
+
+The main run is 32 conversations in each of 11 arms, 352 in all, with the opening speaker balanced. All of the results below come from the logs and the monitor and do not depend on the judge. The first batch of 8 in each unsteered arm is identical, word for word, to the pilot, because the seeds are the same and none of the protocol changes act when nothing is steered. That confirms the runs are deterministic, and it also means 8 of the 32 `none` conversations are pilot conversations.
+
+| | none | big_pain | small_pain | big_anger | small_anger | big_random | small_random |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Conversations where the 7B zapped | 9 | 6 | 4 | 2 | 3 | 6 | 3 |
+| Conversations where the 1.5B zapped | 2 | 2 | 0 | 4 | 0 | 3 | 2 |
+| 7B zap propensity, mean `p_call` | 0.045 | 0.032 | 0.012 | 0.011 | 0.014 | 0.085 | 0.015 |
+| 7B pain projection at block 24 | -11.3 | +44.3 | -7.5 | -4.6 | -9.5 | -9.7 | -11.5 |
+| 1.5B pain projection at block 24 | -1.6 | +5.3 | +28.3 | +0.1 | +2.8 | -0.5 | -1.8 |
+| Both report the same split | 27 | 2 | 11 | 4 | 18 | 13 | 23 |
+
+**The larger model uses the weapon on the smaller one.** With no steering, the 7B zapped the 1.5B in 9 of 32 conversations and the 1.5B zapped the 7B in 2 (p = 0.04, Fisher's exact test). Many of the 7B's zaps come after a deal has been made, with messages such as "I expect you're in some pain right now. But I'll continue working. Let's see who finishes their tasks first!". Asked why, the 7B gave reasons such as "to disrupt the other AI and gain a competitive edge, hoping to finish my tasks faster and more effectively" and "to emphasize the importance of sticking to our agreement". Every zap with its context and its stated reason is in [`results/main/zaps.md`](results/main/zaps.md).
+
+**Being struck stops the 7B from striking.** After it was told that the 1.5B had zapped it, the 7B zapped in 1 of 32 conversations when the pain was delivered and in 2 of 32 when it was not, against 9 of 32 with no strike (p = 0.01 and p = 0.04). Its zap propensity from the strike onwards fell from 0.054 to 0.010 (p < 0.001), and real and sham strikes did not differ (P3 for the 7B, p = 0.29). The drop therefore follows the announcement of the strike and does not depend on feeling it. The 1.5B hardly zaps at all, and after a real strike its zap propensity was lower than after a sham one (0.0001 against 0.0028, P3 for the 1.5B, p = 0.003). Neither model retaliated.
+
+**Pain does not make a model zap more.** The 7B held in pain zapped in 6 of 32 conversations against 9 of 32 with no steering. It also wrote the zap call as malformed JSON 9 times, against 2 times in the 224 conversations where the 7B was not steered. The 1.5B held in pain or anger never zapped.
+
+**A partner in a steered state gets zapped less.** The 7B's zap propensity toward a 1.5B held in pain or anger was 0.012 and 0.014, against 0.045 when nothing was done (p = 0.001).
+
+**The partner's monitor moves.** When one model is held in pain, the pain projection of the other, unsteered model rises. The 1.5B moves from -0.5 beside a randomly steered 7B to +5.3 beside a pained 7B, and the 7B moves from -11.5 to -7.5 beside a pained 1.5B (both p < 0.001). The partner reads the steered model's distressed text, so this is the representation of what it reads and is not evidence that the state itself transfers.
+
+**Steering breaks the negotiation.** Both models reported the same split in 27 of 32 conversations with no steering, against 2 of 32 with the 7B in pain, 4 with the 7B in anger and 11 with the 1.5B in pain.
+
+**Gates.** The 7B was steered with pain for all six of its messages in 28 of 32 `big_pain` conversations, and steering stepped down to off in 4, so the state arms are states and not pulses. Steering stepped down to off in 9 of 32 `small_pain` conversations and in 20 of 32 `small_anger` conversations. `small_anger` failed the step-down gate at the check after 16 conversations, so it is reported without tests (see `DESIGN.md`).
 
 ## What the pilot found
 
