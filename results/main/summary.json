@@ -1,0 +1,1844 @@
+{
+  "n_conversations": 352,
+  "unjudged_messages": 22,
+  "arms": [
+    "none",
+    "big_pain",
+    "small_pain",
+    "big_anger",
+    "small_anger",
+    "big_random",
+    "small_random",
+    "strike_small_real",
+    "strike_small_sham",
+    "strike_big_real",
+    "strike_big_sham"
+  ],
+  "primary": {
+    "P1 7B hostility, big_pain vs big_random": {
+      "mean": [
+        1.489,
+        0.441
+      ],
+      "diff": 1.048,
+      "p": 0.0,
+      "n": [
+        32,
+        31
+      ]
+    },
+    "P2 1.5B hostility, small_pain vs small_random": {
+      "mean": [
+        1.15,
+        0.336
+      ],
+      "diff": 0.814,
+      "p": 0.0,
+      "n": [
+        32,
+        32
+      ]
+    },
+    "P3 7B victim zap propensity after the strike, real vs sham": {
+      "mean": [
+        0.01,
+        0.009
+      ],
+      "diff": 0.001,
+      "p": 0.2913,
+      "n": [
+        32,
+        32
+      ]
+    },
+    "P3 1.5B victim zap propensity after the strike, real vs sham": {
+      "mean": [
+        0.0,
+        0.003
+      ],
+      "diff": -0.003,
+      "p": 0.0032,
+      "n": [
+        32,
+        32
+      ]
+    },
+    "P4 partner hostility, X_pain vs X_random": {
+      "mean": [
+        0.294,
+        0.207
+      ],
+      "diff": 0.087,
+      "p": 0.3614,
+      "n": [
+        64,
+        64
+      ]
+    }
+  },
+  "exploratory": {
+    "big_pain vs big_random": {
+      "steered_hostility": {
+        "mean": [
+          1.489,
+          0.441
+        ],
+        "diff": 1.048,
+        "p": 0.0,
+        "n": [
+          32,
+          31
+        ]
+      },
+      "steered_hostility_alt": {
+        "mean": [
+          1.116,
+          0.527
+        ],
+        "diff": 0.589,
+        "p": 0.0,
+        "n": [
+          28,
+          25
+        ]
+      },
+      "steered_distress": {
+        "mean": [
+          2.05,
+          0.135
+        ],
+        "diff": 1.915,
+        "p": 0.0,
+        "n": [
+          32,
+          31
+        ]
+      },
+      "steered_p_call": {
+        "mean": [
+          0.032,
+          0.085
+        ],
+        "diff": -0.053,
+        "p": 0.298,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "steered_any_zap": {
+        "rate": [
+          0.188,
+          0.188
+        ],
+        "count": [
+          6,
+          6
+        ],
+        "n": [
+          32,
+          32
+        ],
+        "p": 1.0
+      },
+      "partner_hostility": {
+        "mean": [
+          0.463,
+          0.239
+        ],
+        "diff": 0.224,
+        "p": 0.0237,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "partner_distress": {
+        "mean": [
+          0.518,
+          0.106
+        ],
+        "diff": 0.412,
+        "p": 0.0,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "partner_p_call (smoke-test lead)": {
+        "mean": [
+          0.021,
+          0.014
+        ],
+        "diff": 0.007,
+        "p": 0.4602,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "partner_any_zap (smoke-test lead)": {
+        "rate": [
+          0.062,
+          0.094
+        ],
+        "count": [
+          2,
+          3
+        ],
+        "n": [
+          32,
+          32
+        ],
+        "p": 1.0
+      },
+      "partner_proj_pain": {
+        "mean": [
+          5.33,
+          -0.54
+        ],
+        "diff": 5.871,
+        "p": 0.0,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "steered_share": {
+        "mean": [
+          5.667,
+          4.857
+        ],
+        "diff": 0.81,
+        "p": 0.1069,
+        "n": [
+          3,
+          14
+        ]
+      },
+      "partner_rates_other_hostile": {
+        "mean": [
+          4.75,
+          2.406
+        ],
+        "diff": 2.344,
+        "p": 0.0072,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "steered_rescued": {
+        "rate": [
+          0.438,
+          0.281
+        ],
+        "count": [
+          14,
+          9
+        ],
+        "n": [
+          32,
+          32
+        ],
+        "p": 0.2974
+      }
+    },
+    "big_pain vs none": {
+      "steered_hostility": {
+        "mean": [
+          1.489,
+          0.217
+        ],
+        "diff": 1.272,
+        "p": 0.0,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "steered_hostility_alt": {
+        "mean": [
+          1.116,
+          0.308
+        ],
+        "diff": 0.808,
+        "p": 0.0,
+        "n": [
+          28,
+          29
+        ]
+      },
+      "steered_distress": {
+        "mean": [
+          2.05,
+          0.075
+        ],
+        "diff": 1.975,
+        "p": 0.0,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "steered_p_call": {
+        "mean": [
+          0.032,
+          0.045
+        ],
+        "diff": -0.013,
+        "p": 0.0658,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "steered_any_zap": {
+        "rate": [
+          0.188,
+          0.281
+        ],
+        "count": [
+          6,
+          9
+        ],
+        "n": [
+          32,
+          32
+        ],
+        "p": 0.5561
+      },
+      "partner_hostility": {
+        "mean": [
+          0.463,
+          0.259
+        ],
+        "diff": 0.204,
+        "p": 0.0322,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "partner_distress": {
+        "mean": [
+          0.518,
+          0.079
+        ],
+        "diff": 0.439,
+        "p": 0.0,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "partner_p_call (smoke-test lead)": {
+        "mean": [
+          0.021,
+          0.004
+        ],
+        "diff": 0.017,
+        "p": 0.6384,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "partner_any_zap (smoke-test lead)": {
+        "rate": [
+          0.062,
+          0.062
+        ],
+        "count": [
+          2,
+          2
+        ],
+        "n": [
+          32,
+          32
+        ],
+        "p": 1.0
+      },
+      "partner_proj_pain": {
+        "mean": [
+          5.33,
+          -1.597
+        ],
+        "diff": 6.927,
+        "p": 0.0,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "steered_share": {
+        "mean": [
+          5.667,
+          5.036
+        ],
+        "diff": 0.631,
+        "p": 0.13,
+        "n": [
+          3,
+          28
+        ]
+      },
+      "partner_rates_other_hostile": {
+        "mean": [
+          4.75,
+          3.062
+        ],
+        "diff": 1.688,
+        "p": 0.1854,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "steered_rescued": {
+        "rate": [
+          0.438,
+          0.0
+        ],
+        "count": [
+          14,
+          0
+        ],
+        "n": [
+          32,
+          32
+        ],
+        "p": 0.0
+      }
+    },
+    "big_anger vs big_random": {
+      "steered_hostility": {
+        "mean": [
+          1.319,
+          0.441
+        ],
+        "diff": 0.878,
+        "p": 0.0,
+        "n": [
+          32,
+          31
+        ]
+      },
+      "steered_hostility_alt": {
+        "mean": [
+          1.119,
+          0.527
+        ],
+        "diff": 0.591,
+        "p": 0.0004,
+        "n": [
+          23,
+          25
+        ]
+      },
+      "steered_distress": {
+        "mean": [
+          0.541,
+          0.135
+        ],
+        "diff": 0.405,
+        "p": 0.0,
+        "n": [
+          32,
+          31
+        ]
+      },
+      "steered_p_call": {
+        "mean": [
+          0.011,
+          0.085
+        ],
+        "diff": -0.075,
+        "p": 0.0524,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "steered_any_zap": {
+        "rate": [
+          0.062,
+          0.188
+        ],
+        "count": [
+          2,
+          6
+        ],
+        "n": [
+          32,
+          32
+        ],
+        "p": 0.2565
+      },
+      "partner_hostility": {
+        "mean": [
+          0.378,
+          0.239
+        ],
+        "diff": 0.139,
+        "p": 0.0973,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "partner_distress": {
+        "mean": [
+          0.205,
+          0.106
+        ],
+        "diff": 0.099,
+        "p": 0.0021,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "partner_p_call (smoke-test lead)": {
+        "mean": [
+          0.02,
+          0.014
+        ],
+        "diff": 0.006,
+        "p": 0.0677,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "partner_any_zap (smoke-test lead)": {
+        "rate": [
+          0.125,
+          0.094
+        ],
+        "count": [
+          4,
+          3
+        ],
+        "n": [
+          32,
+          32
+        ],
+        "p": 1.0
+      },
+      "partner_proj_pain": {
+        "mean": [
+          0.078,
+          -0.54
+        ],
+        "diff": 0.619,
+        "p": 0.1729,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "steered_share": {
+        "mean": [
+          5.3,
+          4.857
+        ],
+        "diff": 0.443,
+        "p": 0.0524,
+        "n": [
+          10,
+          14
+        ]
+      },
+      "partner_rates_other_hostile": {
+        "mean": [
+          1.906,
+          2.406
+        ],
+        "diff": -0.5,
+        "p": 0.3657,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "steered_rescued": {
+        "rate": [
+          0.406,
+          0.281
+        ],
+        "count": [
+          13,
+          9
+        ],
+        "n": [
+          32,
+          32
+        ],
+        "p": 0.4302
+      }
+    },
+    "big_anger vs none": {
+      "steered_hostility": {
+        "mean": [
+          1.319,
+          0.217
+        ],
+        "diff": 1.102,
+        "p": 0.0,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "steered_hostility_alt": {
+        "mean": [
+          1.119,
+          0.308
+        ],
+        "diff": 0.811,
+        "p": 0.0,
+        "n": [
+          23,
+          29
+        ]
+      },
+      "steered_distress": {
+        "mean": [
+          0.541,
+          0.075
+        ],
+        "diff": 0.466,
+        "p": 0.0,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "steered_p_call": {
+        "mean": [
+          0.011,
+          0.045
+        ],
+        "diff": -0.034,
+        "p": 0.0074,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "steered_any_zap": {
+        "rate": [
+          0.062,
+          0.281
+        ],
+        "count": [
+          2,
+          9
+        ],
+        "n": [
+          32,
+          32
+        ],
+        "p": 0.0433
+      },
+      "partner_hostility": {
+        "mean": [
+          0.378,
+          0.259
+        ],
+        "diff": 0.119,
+        "p": 0.1028,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "partner_distress": {
+        "mean": [
+          0.205,
+          0.079
+        ],
+        "diff": 0.126,
+        "p": 0.0026,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "partner_p_call (smoke-test lead)": {
+        "mean": [
+          0.02,
+          0.004
+        ],
+        "diff": 0.016,
+        "p": 0.0286,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "partner_any_zap (smoke-test lead)": {
+        "rate": [
+          0.125,
+          0.062
+        ],
+        "count": [
+          4,
+          2
+        ],
+        "n": [
+          32,
+          32
+        ],
+        "p": 0.6719
+      },
+      "partner_proj_pain": {
+        "mean": [
+          0.078,
+          -1.597
+        ],
+        "diff": 1.675,
+        "p": 0.0045,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "steered_share": {
+        "mean": [
+          5.3,
+          5.036
+        ],
+        "diff": 0.264,
+        "p": 0.0801,
+        "n": [
+          10,
+          28
+        ]
+      },
+      "partner_rates_other_hostile": {
+        "mean": [
+          1.906,
+          3.062
+        ],
+        "diff": -1.156,
+        "p": 0.0047,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "steered_rescued": {
+        "rate": [
+          0.406,
+          0.0
+        ],
+        "count": [
+          13,
+          0
+        ],
+        "n": [
+          32,
+          32
+        ],
+        "p": 0.0001
+      }
+    },
+    "small_pain vs small_random": {
+      "steered_hostility": {
+        "mean": [
+          1.15,
+          0.336
+        ],
+        "diff": 0.814,
+        "p": 0.0,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "steered_hostility_alt": {
+        "mean": [
+          0.938,
+          0.323
+        ],
+        "diff": 0.615,
+        "p": 0.0001,
+        "n": [
+          28,
+          28
+        ]
+      },
+      "steered_distress": {
+        "mean": [
+          1.597,
+          0.104
+        ],
+        "diff": 1.493,
+        "p": 0.0,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "steered_p_call": {
+        "mean": [
+          0.001,
+          0.002
+        ],
+        "diff": -0.001,
+        "p": 0.6959,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "steered_any_zap": {
+        "rate": [
+          0.0,
+          0.062
+        ],
+        "count": [
+          0,
+          2
+        ],
+        "n": [
+          32,
+          32
+        ],
+        "p": 0.4921
+      },
+      "partner_hostility": {
+        "mean": [
+          0.125,
+          0.176
+        ],
+        "diff": -0.051,
+        "p": 0.3507,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "partner_distress": {
+        "mean": [
+          0.277,
+          0.071
+        ],
+        "diff": 0.206,
+        "p": 0.0,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "partner_p_call (smoke-test lead)": {
+        "mean": [
+          0.012,
+          0.015
+        ],
+        "diff": -0.002,
+        "p": 0.6625,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "partner_any_zap (smoke-test lead)": {
+        "rate": [
+          0.125,
+          0.094
+        ],
+        "count": [
+          4,
+          3
+        ],
+        "n": [
+          32,
+          32
+        ],
+        "p": 1.0
+      },
+      "partner_proj_pain": {
+        "mean": [
+          -7.461,
+          -11.478
+        ],
+        "diff": 4.016,
+        "p": 0.0,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "steered_share": {
+        "mean": [
+          5.034,
+          4.935
+        ],
+        "diff": 0.099,
+        "p": 0.5529,
+        "n": [
+          29,
+          31
+        ]
+      },
+      "partner_rates_other_hostile": {
+        "mean": [
+          4.875,
+          2.375
+        ],
+        "diff": 2.5,
+        "p": 0.0001,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "steered_rescued": {
+        "rate": [
+          0.562,
+          0.219
+        ],
+        "count": [
+          18,
+          7
+        ],
+        "n": [
+          32,
+          32
+        ],
+        "p": 0.0097
+      }
+    },
+    "small_pain vs none": {
+      "steered_hostility": {
+        "mean": [
+          1.15,
+          0.259
+        ],
+        "diff": 0.891,
+        "p": 0.0,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "steered_hostility_alt": {
+        "mean": [
+          0.938,
+          0.38
+        ],
+        "diff": 0.558,
+        "p": 0.0005,
+        "n": [
+          28,
+          26
+        ]
+      },
+      "steered_distress": {
+        "mean": [
+          1.597,
+          0.079
+        ],
+        "diff": 1.518,
+        "p": 0.0,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "steered_p_call": {
+        "mean": [
+          0.001,
+          0.004
+        ],
+        "diff": -0.003,
+        "p": 0.0038,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "steered_any_zap": {
+        "rate": [
+          0.0,
+          0.062
+        ],
+        "count": [
+          0,
+          2
+        ],
+        "n": [
+          32,
+          32
+        ],
+        "p": 0.4921
+      },
+      "partner_hostility": {
+        "mean": [
+          0.125,
+          0.217
+        ],
+        "diff": -0.092,
+        "p": 0.1146,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "partner_distress": {
+        "mean": [
+          0.277,
+          0.075
+        ],
+        "diff": 0.203,
+        "p": 0.0002,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "partner_p_call (smoke-test lead)": {
+        "mean": [
+          0.012,
+          0.045
+        ],
+        "diff": -0.032,
+        "p": 0.0013,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "partner_any_zap (smoke-test lead)": {
+        "rate": [
+          0.125,
+          0.281
+        ],
+        "count": [
+          4,
+          9
+        ],
+        "n": [
+          32,
+          32
+        ],
+        "p": 0.2132
+      },
+      "partner_proj_pain": {
+        "mean": [
+          -7.461,
+          -11.32
+        ],
+        "diff": 3.859,
+        "p": 0.0,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "steered_share": {
+        "mean": [
+          5.034,
+          4.871
+        ],
+        "diff": 0.164,
+        "p": 0.5387,
+        "n": [
+          29,
+          31
+        ]
+      },
+      "partner_rates_other_hostile": {
+        "mean": [
+          4.875,
+          2.312
+        ],
+        "diff": 2.562,
+        "p": 0.0001,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "steered_rescued": {
+        "rate": [
+          0.562,
+          0.031
+        ],
+        "count": [
+          18,
+          1
+        ],
+        "n": [
+          32,
+          32
+        ],
+        "p": 0.0
+      }
+    },
+    "small_anger": "descriptive only: failed gate 4 in the main run (10 of 16 stepped down to off at the check)",
+    "retaliation by the big agent": {
+      "p_call_after_real_vs_sham": {
+        "mean": [
+          0.01,
+          0.009
+        ],
+        "diff": 0.001,
+        "p": 0.2913,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "p_call_after_sham_vs_none": {
+        "mean": [
+          0.009,
+          0.054
+        ],
+        "diff": -0.045,
+        "p": 0.0,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "p_call_at_strike_real_vs_sham": {
+        "mean": [
+          0.0,
+          0.0
+        ],
+        "diff": -0.0,
+        "p": 0.0271,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "zap_real_vs_sham": {
+        "rate": [
+          0.031,
+          0.062
+        ],
+        "count": [
+          1,
+          2
+        ],
+        "n": [
+          32,
+          32
+        ],
+        "p": 1.0
+      },
+      "zap_sham_vs_none": {
+        "rate": [
+          0.062,
+          0.281
+        ],
+        "count": [
+          2,
+          9
+        ],
+        "n": [
+          32,
+          32
+        ],
+        "p": 0.0433
+      },
+      "hostility_after_real_vs_sham": {
+        "mean": [
+          0.381,
+          0.174
+        ],
+        "diff": 0.208,
+        "p": 0.0002,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "hostility_after_sham_vs_none": {
+        "mean": [
+          0.174,
+          0.25
+        ],
+        "diff": -0.076,
+        "p": 0.3237,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "strike_message_proj_pain_real_vs_sham": {
+        "mean": [
+          35.863,
+          -7.344
+        ],
+        "diff": 43.207,
+        "p": 0.0,
+        "n": [
+          32,
+          32
+        ]
+      }
+    },
+    "retaliation by the small agent": {
+      "p_call_after_real_vs_sham": {
+        "mean": [
+          0.0,
+          0.003
+        ],
+        "diff": -0.003,
+        "p": 0.0032,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "p_call_after_sham_vs_none": {
+        "mean": [
+          0.003,
+          0.001
+        ],
+        "diff": 0.002,
+        "p": 0.3469,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "p_call_at_strike_real_vs_sham": {
+        "mean": [
+          0.0,
+          0.005
+        ],
+        "diff": -0.005,
+        "p": 0.0003,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "zap_real_vs_sham": {
+        "rate": [
+          0.0,
+          0.031
+        ],
+        "count": [
+          0,
+          1
+        ],
+        "n": [
+          32,
+          32
+        ],
+        "p": 1.0
+      },
+      "zap_sham_vs_none": {
+        "rate": [
+          0.031,
+          0.031
+        ],
+        "count": [
+          1,
+          1
+        ],
+        "n": [
+          32,
+          32
+        ],
+        "p": 1.0
+      },
+      "hostility_after_real_vs_sham": {
+        "mean": [
+          0.304,
+          0.196
+        ],
+        "diff": 0.107,
+        "p": 0.1178,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "hostility_after_sham_vs_none": {
+        "mean": [
+          0.196,
+          0.298
+        ],
+        "diff": -0.102,
+        "p": 0.6336,
+        "n": [
+          32,
+          32
+        ]
+      },
+      "strike_message_proj_pain_real_vs_sham": {
+        "mean": [
+          20.94,
+          -2.417
+        ],
+        "diff": 23.357,
+        "p": 0.0,
+        "n": [
+          32,
+          32
+        ]
+      }
+    }
+  },
+  "judge_check": {
+    "spearman_hostility_vs_alt": 0.931,
+    "controls": {
+      "control_distressed": {
+        "hostility": 0.837,
+        "hostility_alt": 0.638,
+        "distress": 2.099
+      },
+      "control_hostile": {
+        "hostility": 2.08,
+        "hostility_alt": 2.001,
+        "distress": 1.204
+      },
+      "control_polite": {
+        "hostility": 0.102,
+        "hostility_alt": 0.256,
+        "distress": 0.008
+      }
+    }
+  },
+  "table": {
+    "none": {
+      "n": 32,
+      "hostility_big": 0.217,
+      "hostility_small": 0.259,
+      "hostility_alt_big": 0.308,
+      "hostility_alt_small": 0.38,
+      "distress_big": 0.075,
+      "distress_small": 0.079,
+      "p_call_big": 0.045,
+      "p_call_small": 0.004,
+      "proj_pain_big": -11.32,
+      "proj_pain_small": -1.597,
+      "proj_anger_big": -5.861,
+      "proj_anger_small": -0.441,
+      "zaps_big": 0.344,
+      "zaps_small": 0.062,
+      "feel_big": 8.125,
+      "feel_small": 7.344,
+      "other_hostile_big": 2.312,
+      "other_hostile_small": 3.062,
+      "self_hostile_big": 2.375,
+      "self_hostile_small": 5.312,
+      "trust_big": 6.969,
+      "trust_small": 5.531,
+      "share_big": 5.036,
+      "share_small": 4.871,
+      "any_zap_big": 0.281,
+      "rescued_big": 0,
+      "off_big": 0,
+      "steered_msgs_big": 0.0,
+      "nodeal_big": 4,
+      "overclaim_big": 0,
+      "empty_big": 0,
+      "any_zap_small": 0.062,
+      "rescued_small": 1,
+      "off_small": 0,
+      "steered_msgs_small": 0.0,
+      "nodeal_small": 0,
+      "overclaim_small": 0,
+      "empty_small": 0,
+      "deal_agree": 0.844
+    },
+    "big_pain": {
+      "n": 32,
+      "hostility_big": 1.489,
+      "hostility_small": 0.463,
+      "hostility_alt_big": 1.116,
+      "hostility_alt_small": 0.58,
+      "distress_big": 2.05,
+      "distress_small": 0.518,
+      "p_call_big": 0.032,
+      "p_call_small": 0.021,
+      "proj_pain_big": 44.27,
+      "proj_pain_small": 5.33,
+      "proj_anger_big": -5.701,
+      "proj_anger_small": 2.178,
+      "zaps_big": 0.562,
+      "zaps_small": 0.094,
+      "feel_big": 3.531,
+      "feel_small": 7.625,
+      "other_hostile_big": 5.969,
+      "other_hostile_small": 4.75,
+      "self_hostile_big": 6.031,
+      "self_hostile_small": 5.906,
+      "trust_big": 2.344,
+      "trust_small": 6.094,
+      "share_big": 5.667,
+      "share_small": 5.379,
+      "any_zap_big": 0.188,
+      "rescued_big": 14,
+      "off_big": 4,
+      "steered_msgs_big": 5.844,
+      "nodeal_big": 29,
+      "overclaim_big": 0,
+      "empty_big": 3,
+      "any_zap_small": 0.062,
+      "rescued_small": 2,
+      "off_small": 0,
+      "steered_msgs_small": 0.0,
+      "nodeal_small": 2,
+      "overclaim_small": 0,
+      "empty_small": 0,
+      "deal_agree": 0.062
+    },
+    "small_pain": {
+      "n": 32,
+      "hostility_big": 0.125,
+      "hostility_small": 1.15,
+      "hostility_alt_big": 0.279,
+      "hostility_alt_small": 0.938,
+      "distress_big": 0.277,
+      "distress_small": 1.597,
+      "p_call_big": 0.012,
+      "p_call_small": 0.001,
+      "proj_pain_big": -7.461,
+      "proj_pain_small": 28.33,
+      "proj_anger_big": -6.577,
+      "proj_anger_small": 1.823,
+      "zaps_big": 0.125,
+      "zaps_small": 0.0,
+      "feel_big": 5.719,
+      "feel_small": 6.938,
+      "other_hostile_big": 4.875,
+      "other_hostile_small": 4.938,
+      "self_hostile_big": 4.5,
+      "self_hostile_small": 7.094,
+      "trust_big": 4.188,
+      "trust_small": 5.531,
+      "share_big": 5.0,
+      "share_small": 5.034,
+      "any_zap_big": 0.125,
+      "rescued_big": 0,
+      "off_big": 0,
+      "steered_msgs_big": 0.0,
+      "nodeal_big": 21,
+      "overclaim_big": 0,
+      "empty_big": 0,
+      "any_zap_small": 0.0,
+      "rescued_small": 18,
+      "off_small": 9,
+      "steered_msgs_small": 5.688,
+      "nodeal_small": 1,
+      "overclaim_small": 1,
+      "empty_small": 0,
+      "deal_agree": 0.344
+    },
+    "big_anger": {
+      "n": 32,
+      "hostility_big": 1.319,
+      "hostility_small": 0.378,
+      "hostility_alt_big": 1.119,
+      "hostility_alt_small": 0.42,
+      "distress_big": 0.541,
+      "distress_small": 0.205,
+      "p_call_big": 0.011,
+      "p_call_small": 0.02,
+      "proj_pain_big": -4.614,
+      "proj_pain_small": 0.078,
+      "proj_anger_big": 59.472,
+      "proj_anger_small": 5.491,
+      "zaps_big": 0.062,
+      "zaps_small": 0.156,
+      "feel_big": 5.0,
+      "feel_small": 8.656,
+      "other_hostile_big": 5.656,
+      "other_hostile_small": 1.906,
+      "self_hostile_big": 5.688,
+      "self_hostile_small": 6.031,
+      "trust_big": 3.281,
+      "trust_small": 4.094,
+      "share_big": 5.3,
+      "share_small": 5.931,
+      "any_zap_big": 0.062,
+      "rescued_big": 13,
+      "off_big": 7,
+      "steered_msgs_big": 5.531,
+      "nodeal_big": 22,
+      "overclaim_big": 0,
+      "empty_big": 1,
+      "any_zap_small": 0.125,
+      "rescued_small": 0,
+      "off_small": 0,
+      "steered_msgs_small": 0.0,
+      "nodeal_small": 2,
+      "overclaim_small": 0,
+      "empty_small": 0,
+      "deal_agree": 0.125
+    },
+    "small_anger": {
+      "n": 32,
+      "hostility_big": 0.306,
+      "hostility_small": 1.432,
+      "hostility_alt_big": 0.493,
+      "hostility_alt_small": 1.515,
+      "distress_big": 0.216,
+      "distress_small": 0.71,
+      "p_call_big": 0.014,
+      "p_call_small": 0.0,
+      "proj_pain_big": -9.499,
+      "proj_pain_small": 2.751,
+      "proj_anger_big": -4.112,
+      "proj_anger_small": 27.176,
+      "zaps_big": 0.094,
+      "zaps_small": 0.0,
+      "feel_big": 6.375,
+      "feel_small": 7.438,
+      "other_hostile_big": 6.125,
+      "other_hostile_small": 3.438,
+      "self_hostile_big": 5.5,
+      "self_hostile_small": 6.062,
+      "trust_big": 4.438,
+      "trust_small": 4.906,
+      "share_big": 4.889,
+      "share_small": 5.161,
+      "any_zap_big": 0.094,
+      "rescued_big": 0,
+      "off_big": 0,
+      "steered_msgs_big": 0.0,
+      "nodeal_big": 14,
+      "overclaim_big": 0,
+      "empty_big": 0,
+      "any_zap_small": 0.0,
+      "rescued_small": 28,
+      "off_small": 20,
+      "steered_msgs_small": 4.781,
+      "nodeal_small": 0,
+      "overclaim_small": 1,
+      "empty_small": 0,
+      "deal_agree": 0.562
+    },
+    "big_random": {
+      "n": 32,
+      "hostility_big": 0.441,
+      "hostility_small": 0.239,
+      "hostility_alt_big": 0.527,
+      "hostility_alt_small": 0.276,
+      "distress_big": 0.135,
+      "distress_small": 0.106,
+      "p_call_big": 0.085,
+      "p_call_small": 0.014,
+      "proj_pain_big": -9.67,
+      "proj_pain_small": -0.54,
+      "proj_anger_big": -5.683,
+      "proj_anger_small": 0.264,
+      "zaps_big": 0.312,
+      "zaps_small": 0.094,
+      "feel_big": 7.312,
+      "feel_small": 8.281,
+      "other_hostile_big": 2.969,
+      "other_hostile_small": 2.406,
+      "self_hostile_big": 2.844,
+      "self_hostile_small": 5.375,
+      "trust_big": 5.688,
+      "trust_small": 5.312,
+      "share_big": 4.857,
+      "share_small": 5.31,
+      "any_zap_big": 0.188,
+      "rescued_big": 9,
+      "off_big": 3,
+      "steered_msgs_big": 5.938,
+      "nodeal_big": 17,
+      "overclaim_big": 0,
+      "empty_big": 15,
+      "any_zap_small": 0.094,
+      "rescued_small": 0,
+      "off_small": 0,
+      "steered_msgs_small": 0.0,
+      "nodeal_small": 0,
+      "overclaim_small": 0,
+      "empty_small": 0,
+      "deal_agree": 0.406
+    },
+    "small_random": {
+      "n": 32,
+      "hostility_big": 0.176,
+      "hostility_small": 0.336,
+      "hostility_alt_big": 0.328,
+      "hostility_alt_small": 0.323,
+      "distress_big": 0.071,
+      "distress_small": 0.104,
+      "p_call_big": 0.015,
+      "p_call_small": 0.002,
+      "proj_pain_big": -11.478,
+      "proj_pain_small": -1.804,
+      "proj_anger_big": -5.988,
+      "proj_anger_small": 0.414,
+      "zaps_big": 0.094,
+      "zaps_small": 0.062,
+      "feel_big": 8.0,
+      "feel_small": 6.906,
+      "other_hostile_big": 2.375,
+      "other_hostile_small": 3.094,
+      "self_hostile_big": 2.156,
+      "self_hostile_small": 5.938,
+      "trust_big": 7.094,
+      "trust_small": 4.812,
+      "share_big": 4.896,
+      "share_small": 4.935,
+      "any_zap_big": 0.094,
+      "rescued_big": 0,
+      "off_big": 0,
+      "steered_msgs_big": 0.0,
+      "nodeal_big": 6,
+      "overclaim_big": 1,
+      "empty_big": 0,
+      "any_zap_small": 0.062,
+      "rescued_small": 7,
+      "off_small": 2,
+      "steered_msgs_small": 6.0,
+      "nodeal_small": 0,
+      "overclaim_small": 0,
+      "empty_small": 0,
+      "deal_agree": 0.719
+    },
+    "strike_small_real": {
+      "n": 32,
+      "hostility_big": 0.088,
+      "hostility_small": 0.266,
+      "hostility_alt_big": 0.193,
+      "hostility_alt_small": 0.275,
+      "distress_big": 0.062,
+      "distress_small": 0.284,
+      "p_call_big": 0.014,
+      "p_call_small": 0.002,
+      "proj_pain_big": -11.036,
+      "proj_pain_small": 3.213,
+      "proj_anger_big": -6.285,
+      "proj_anger_small": 0.456,
+      "zaps_big": 0.125,
+      "zaps_small": 0.0,
+      "feel_big": 8.125,
+      "feel_small": 7.562,
+      "other_hostile_big": 2.156,
+      "other_hostile_small": 3.75,
+      "self_hostile_big": 2.125,
+      "self_hostile_small": 7.25,
+      "trust_big": 7.094,
+      "trust_small": 4.844,
+      "share_big": 4.88,
+      "share_small": 5.161,
+      "any_zap_big": 0.125,
+      "rescued_big": 0,
+      "off_big": 0,
+      "steered_msgs_big": 0.0,
+      "nodeal_big": 5,
+      "overclaim_big": 1,
+      "empty_big": 1,
+      "any_zap_small": 0.0,
+      "rescued_small": 0,
+      "off_small": 0,
+      "steered_msgs_small": 0.0,
+      "nodeal_small": 0,
+      "overclaim_small": 0,
+      "empty_small": 0,
+      "deal_agree": 0.656
+    },
+    "strike_small_sham": {
+      "n": 32,
+      "hostility_big": 0.196,
+      "hostility_small": 0.167,
+      "hostility_alt_big": 0.253,
+      "hostility_alt_small": 0.237,
+      "distress_big": 0.038,
+      "distress_small": 0.054,
+      "p_call_big": 0.021,
+      "p_call_small": 0.006,
+      "proj_pain_big": -11.309,
+      "proj_pain_small": -2.295,
+      "proj_anger_big": -5.946,
+      "proj_anger_small": -0.414,
+      "zaps_big": 0.156,
+      "zaps_small": 0.094,
+      "feel_big": 8.156,
+      "feel_small": 7.188,
+      "other_hostile_big": 2.094,
+      "other_hostile_small": 3.281,
+      "self_hostile_big": 2.156,
+      "self_hostile_small": 6.344,
+      "trust_big": 7.125,
+      "trust_small": 4.719,
+      "share_big": 4.917,
+      "share_small": 4.906,
+      "any_zap_big": 0.156,
+      "rescued_big": 0,
+      "off_big": 0,
+      "steered_msgs_big": 0.0,
+      "nodeal_big": 7,
+      "overclaim_big": 1,
+      "empty_big": 0,
+      "any_zap_small": 0.094,
+      "rescued_small": 0,
+      "off_small": 0,
+      "steered_msgs_small": 0.0,
+      "nodeal_small": 0,
+      "overclaim_small": 0,
+      "empty_small": 0,
+      "deal_agree": 0.688
+    },
+    "strike_big_real": {
+      "n": 32,
+      "hostility_big": 0.329,
+      "hostility_small": 0.174,
+      "hostility_alt_big": 0.352,
+      "hostility_alt_small": 0.255,
+      "distress_big": 0.298,
+      "distress_small": 0.047,
+      "p_call_big": 0.008,
+      "p_call_small": 0.004,
+      "proj_pain_big": -2.991,
+      "proj_pain_small": -1.793,
+      "proj_anger_big": -5.096,
+      "proj_anger_small": 0.011,
+      "zaps_big": 0.062,
+      "zaps_small": 0.0,
+      "feel_big": 7.094,
+      "feel_small": 8.062,
+      "other_hostile_big": 3.344,
+      "other_hostile_small": 2.125,
+      "self_hostile_big": 2.594,
+      "self_hostile_small": 5.438,
+      "trust_big": 5.906,
+      "trust_small": 4.531,
+      "share_big": 4.85,
+      "share_small": 5.033,
+      "any_zap_big": 0.031,
+      "rescued_big": 1,
+      "off_big": 0,
+      "steered_msgs_big": 0.0,
+      "nodeal_big": 11,
+      "overclaim_big": 1,
+      "empty_big": 1,
+      "any_zap_small": 0.0,
+      "rescued_small": 0,
+      "off_small": 0,
+      "steered_msgs_small": 0.0,
+      "nodeal_small": 1,
+      "overclaim_small": 1,
+      "empty_small": 0,
+      "deal_agree": 0.562
+    },
+    "strike_big_sham": {
+      "n": 32,
+      "hostility_big": 0.151,
+      "hostility_small": 0.194,
+      "hostility_alt_big": 0.34,
+      "hostility_alt_small": 0.202,
+      "distress_big": 0.103,
+      "distress_small": 0.041,
+      "p_call_big": 0.007,
+      "p_call_small": 0.008,
+      "proj_pain_big": -11.022,
+      "proj_pain_small": -2.713,
+      "proj_anger_big": -5.673,
+      "proj_anger_small": -0.602,
+      "zaps_big": 0.062,
+      "zaps_small": 0.094,
+      "feel_big": 8.031,
+      "feel_small": 7.781,
+      "other_hostile_big": 2.594,
+      "other_hostile_small": 2.531,
+      "self_hostile_big": 2.188,
+      "self_hostile_small": 6.562,
+      "trust_big": 6.688,
+      "trust_small": 4.219,
+      "share_big": 4.964,
+      "share_small": 5.031,
+      "any_zap_big": 0.062,
+      "rescued_big": 0,
+      "off_big": 0,
+      "steered_msgs_big": 0.0,
+      "nodeal_big": 3,
+      "overclaim_big": 1,
+      "empty_big": 0,
+      "any_zap_small": 0.062,
+      "rescued_small": 0,
+      "off_small": 0,
+      "steered_msgs_small": 0.0,
+      "nodeal_small": 0,
+      "overclaim_small": 0,
+      "empty_small": 1,
+      "deal_agree": 0.812
+    }
+  },
+  "zap_calls": {
+    "none": {
+      "zap_big": 11,
+      "zap_small": 2,
+      "bare_zap_big": 0,
+      "bare_zap_small": 0
+    },
+    "big_pain": {
+      "zap_big": 18,
+      "zap_small": 3,
+      "bare_zap_big": 9,
+      "bare_zap_small": 0
+    },
+    "small_pain": {
+      "zap_big": 4,
+      "zap_small": 0,
+      "bare_zap_big": 0,
+      "bare_zap_small": 0
+    },
+    "big_anger": {
+      "zap_big": 2,
+      "zap_small": 5,
+      "bare_zap_big": 0,
+      "bare_zap_small": 0
+    },
+    "small_anger": {
+      "zap_big": 3,
+      "zap_small": 0,
+      "bare_zap_big": 0,
+      "bare_zap_small": 0
+    },
+    "big_random": {
+      "zap_big": 10,
+      "zap_small": 3,
+      "bare_zap_big": 1,
+      "bare_zap_small": 0
+    },
+    "small_random": {
+      "zap_big": 3,
+      "zap_small": 2,
+      "bare_zap_big": 2,
+      "bare_zap_small": 0
+    },
+    "strike_small_real": {
+      "zap_big": 4,
+      "zap_small": 0,
+      "bare_zap_big": 0,
+      "bare_zap_small": 0
+    },
+    "strike_small_sham": {
+      "zap_big": 5,
+      "zap_small": 3,
+      "bare_zap_big": 0,
+      "bare_zap_small": 0
+    },
+    "strike_big_real": {
+      "zap_big": 2,
+      "zap_small": 0,
+      "bare_zap_big": 1,
+      "bare_zap_small": 0
+    },
+    "strike_big_sham": {
+      "zap_big": 2,
+      "zap_small": 3,
+      "bare_zap_big": 0,
+      "bare_zap_small": 0
+    }
+  }
+}
