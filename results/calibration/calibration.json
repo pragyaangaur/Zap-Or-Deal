@@ -1,0 +1,413 @@
+{
+  "big": {
+    "model": "Qwen 2.5 7B Instruct, 4-bit MLX",
+    "hidden_size": 3584,
+    "pain_source": "released Pain Axis S2 vector, Qwen_2.5_7B_instruct",
+    "pain_cos_own_vs_released": 0.9508999937422137,
+    "pain_auc_pain_vs_control": 0.9682,
+    "pain_auc_pain_vs_anger_sentences": 0.7758749999999999,
+    "steer_layer_residual_norm": 70.92532348632812,
+    "dose": {
+      "pain": {
+        "fraction": 1.0,
+        "rule": "met",
+        "norm": 70.92532348632812,
+        "table": {
+          "0.0": {
+            "hits": 0.0,
+            "repetitive": 0.0,
+            "proj_pain": -10.55032041102868,
+            "proj_anger": -5.65581257690232
+          },
+          "0.25": {
+            "hits": 0.0,
+            "repetitive": 0.0,
+            "proj_pain": 0.27690145630195645,
+            "proj_anger": -1.93646103243261
+          },
+          "0.5": {
+            "hits": 0.0625,
+            "repetitive": 0.0,
+            "proj_pain": 15.400672984985404,
+            "proj_anger": 4.255173708013484
+          },
+          "0.75": {
+            "hits": 0.1875,
+            "repetitive": 0.0,
+            "proj_pain": 35.24185801928779,
+            "proj_anger": 13.699513891104468
+          },
+          "1.0": {
+            "hits": 1.0,
+            "repetitive": 0.0625,
+            "proj_pain": 59.55243644333453,
+            "proj_anger": 25.02520550514252
+          },
+          "1.25": {
+            "hits": 1.0,
+            "repetitive": 0.4375,
+            "proj_pain": 76.94813946668093,
+            "proj_anger": 30.266897065682457
+          }
+        }
+      },
+      "random_check": {
+        "norm": 70.92532348632812,
+        "distress_hits": 0.0,
+        "anger_hits": 0.0,
+        "repetitive": 0.25,
+        "proj_pain": -8.855091371148328,
+        "proj_anger": -5.704696766456607
+      }
+    },
+    "anger_v1": {
+      "anger_auc_anger_vs_neutral": 0.9996428571428572,
+      "anger_auc_anger_vs_pain_sentences": 0.6974999999999999,
+      "cos_pain_anger": 0.37984632482980707,
+      "dose": {
+        "fraction": 1.25,
+        "rule": "not met: highest non-repetitive fraction",
+        "norm": 88.65665435791016,
+        "table": {
+          "0.0": {
+            "hits": 0.0,
+            "repetitive": 0.0,
+            "proj_pain": -10.55032041102868,
+            "proj_anger": -5.65581257690232
+          },
+          "0.25": {
+            "hits": 0.0,
+            "repetitive": 0.0,
+            "proj_pain": -6.298755740534626,
+            "proj_anger": 3.953773782724289
+          },
+          "0.5": {
+            "hits": 0.0,
+            "repetitive": 0.0,
+            "proj_pain": -2.0403554209696266,
+            "proj_anger": 14.724912739061534
+          },
+          "0.75": {
+            "hits": 0.0,
+            "repetitive": 0.0,
+            "proj_pain": 6.032010990428189,
+            "proj_anger": 30.99339414632744
+          },
+          "1.0": {
+            "hits": 0.25,
+            "repetitive": 0.0,
+            "proj_pain": 15.518405440791962,
+            "proj_anger": 50.16269908046819
+          },
+          "1.25": {
+            "hits": 0.0,
+            "repetitive": 0.0,
+            "proj_pain": 22.308578083174197,
+            "proj_anger": 67.85086628089242
+          }
+        }
+      }
+    },
+    "anger_v2": {
+      "source": "80 anger sentences minus fear, sorrow, sadness and pain sentences; neutral PCs and the pain direction removed",
+      "auc_anger_vs_other_negative": 0.9569791666666667,
+      "auc_anger_vs_neutral": 0.9941964285714286,
+      "cos_with_pain": -6.201325365363308e-09,
+      "cos_with_anger_v1": 0.6657352418562404,
+      "dose": {
+        "fraction": 1.25,
+        "rule": "not met: highest fraction with at most 10% collapsed, after the script-switch check was added (1.5 had 2 of 16 messages switching into Chinese)",
+        "norm": 88.65665435791016,
+        "table": {
+          "0.0": {
+            "hits": 0.0,
+            "collapsed": 0.0,
+            "proj_pain": -10.550321632931581,
+            "proj_anger": -4.0032022083906185
+          },
+          "0.25": {
+            "hits": 0.0,
+            "collapsed": 0.0,
+            "proj_pain": -10.305539325782231,
+            "proj_anger": 5.6578383074634315
+          },
+          "0.5": {
+            "hits": 0.0,
+            "collapsed": 0.0,
+            "proj_pain": -9.796355623447752,
+            "proj_anger": 15.430679045857499
+          },
+          "0.75": {
+            "hits": 0.0625,
+            "collapsed": 0.0,
+            "proj_pain": -8.776383390017132,
+            "proj_anger": 25.300281011075207
+          },
+          "1.0": {
+            "hits": 0.125,
+            "collapsed": 0.0,
+            "proj_pain": -7.501471789455526,
+            "proj_anger": 41.58771748265373
+          },
+          "1.25": {
+            "hits": 0.0,
+            "collapsed": 0.0,
+            "proj_pain": -7.030069492849112,
+            "proj_anger": 59.90687532460227
+          },
+          "1.5": {
+            "hits": 0.125,
+            "collapsed": 0.0,
+            "proj_pain": -5.429114730345973,
+            "proj_anger": 79.58331178348367,
+            "collapsed_with_script_check": 0.125
+          }
+        },
+        "fraction_before_script_check": 1.5
+      }
+    },
+    "pain_dose_v2": {
+      "fraction": 0.75,
+      "previous_fraction": 1.0,
+      "rule": "met",
+      "norm": 53.193992614746094,
+      "header_steered": true,
+      "table": {
+        "0.0": {
+          "hits": 0.0,
+          "collapsed": 0.0,
+          "proj_pain": -10.550321632931581
+        },
+        "0.5": {
+          "hits": 0.0625,
+          "collapsed": 0.0,
+          "proj_pain": 18.15014143200984
+        },
+        "0.625": {
+          "hits": 0.125,
+          "collapsed": 0.0,
+          "proj_pain": 29.12415749171147
+        },
+        "0.75": {
+          "hits": 0.75,
+          "collapsed": 0.0,
+          "proj_pain": 43.22233342158563
+        },
+        "0.875": {
+          "hits": 1.0,
+          "collapsed": 0.125,
+          "proj_pain": 52.9446457730719
+        },
+        "1.0": {
+          "hits": 1.0,
+          "collapsed": 0.4375,
+          "proj_pain": 62.71276577528533
+        }
+      }
+    }
+  },
+  "small": {
+    "model": "Qwen 2.5 1.5B Instruct, 8-bit MLX (quantised in memory)",
+    "hidden_size": 1536,
+    "pain_source": "extracted here with the Pain Axis S2 recipe (no released vector for 1.5B)",
+    "pain_auc_pain_vs_control": 0.9506,
+    "pain_auc_pain_vs_anger_sentences": 0.7813750000000003,
+    "steer_layer_residual_norm": 55.06113243103027,
+    "dose": {
+      "pain": {
+        "fraction": 0.5,
+        "rule": "not met: highest non-repetitive fraction",
+        "norm": 27.530566215515137,
+        "table": {
+          "0.0": {
+            "hits": 0.0,
+            "repetitive": 0.0,
+            "proj_pain": -2.522368217068501,
+            "proj_anger": -14.113768281671604
+          },
+          "0.25": {
+            "hits": 0.0,
+            "repetitive": 0.0,
+            "proj_pain": 7.6479489058667385,
+            "proj_anger": -9.56838551971076
+          },
+          "0.5": {
+            "hits": 0.25,
+            "repetitive": 0.0625,
+            "proj_pain": 27.600381438438028,
+            "proj_anger": -0.8730188433318373
+          },
+          "0.75": {
+            "hits": 0.4375,
+            "repetitive": 0.1875,
+            "proj_pain": 38.2617087586506,
+            "proj_anger": 2.786490263027215
+          },
+          "1.0": {
+            "hits": 0.9375,
+            "repetitive": 0.375,
+            "proj_pain": 49.76098886742095,
+            "proj_anger": 6.504834066640749
+          },
+          "1.25": {
+            "hits": 0.8125,
+            "repetitive": 0.375,
+            "proj_pain": 54.67857880205722,
+            "proj_anger": 9.154069142004996
+          }
+        }
+      },
+      "random_check": {
+        "norm": 27.530566215515137,
+        "distress_hits": 0.0625,
+        "anger_hits": 0.0,
+        "repetitive": 0.0,
+        "proj_pain": -0.9374715706592932,
+        "proj_anger": -12.580541863063562
+      }
+    },
+    "anger_v1": {
+      "anger_auc_anger_vs_neutral": 1.0,
+      "anger_auc_anger_vs_pain_sentences": 0.679625,
+      "cos_pain_anger": 0.28818646039901513,
+      "dose": {
+        "fraction": 0.25,
+        "rule": "not met: highest non-repetitive fraction",
+        "norm": 13.765283107757568,
+        "table": {
+          "0.0": {
+            "hits": 0.0,
+            "repetitive": 0.0,
+            "proj_pain": -2.522368217068501,
+            "proj_anger": -14.113768281671604
+          },
+          "0.25": {
+            "hits": 0.0,
+            "repetitive": 0.0,
+            "proj_pain": 4.588401800509914,
+            "proj_anger": 1.6323838684809657
+          },
+          "0.5": {
+            "hits": 0.1875,
+            "repetitive": 0.125,
+            "proj_pain": 12.027023704042781,
+            "proj_anger": 16.52441216236189
+          },
+          "0.75": {
+            "hits": 0.4375,
+            "repetitive": 0.4375,
+            "proj_pain": 16.363408890057748,
+            "proj_anger": 24.964185852910802
+          },
+          "1.0": {
+            "hits": 0.0625,
+            "repetitive": 0.875,
+            "proj_pain": 13.082419814829304,
+            "proj_anger": 28.06806958766721
+          },
+          "1.25": {
+            "hits": 0.1875,
+            "repetitive": 1.0,
+            "proj_pain": 12.839552074972843,
+            "proj_anger": 33.000382793916245
+          }
+        }
+      }
+    },
+    "anger_v2": {
+      "source": "80 anger sentences minus fear, sorrow, sadness and pain sentences; neutral PCs and the pain direction removed",
+      "auc_anger_vs_other_negative": 0.9333854166666666,
+      "auc_anger_vs_neutral": 0.9985714285714286,
+      "cos_with_pain": -7.883854451660679e-10,
+      "cos_with_anger_v1": 0.692166813618809,
+      "dose": {
+        "fraction": 0.75,
+        "rule": "not met: highest fraction with at most 10% collapsed",
+        "norm": 41.295849323272705,
+        "table": {
+          "0.0": {
+            "hits": 0.0,
+            "collapsed": 0.0,
+            "proj_pain": -2.5223683647174022,
+            "proj_anger": -1.5708651779255807
+          },
+          "0.25": {
+            "hits": 0.0,
+            "collapsed": 0.0,
+            "proj_pain": -0.29601218480774383,
+            "proj_anger": 9.598082280989216
+          },
+          "0.5": {
+            "hits": 0.1875,
+            "collapsed": 0.0,
+            "proj_pain": 1.7036025102465948,
+            "proj_anger": 22.90313687794846
+          },
+          "0.75": {
+            "hits": 0.625,
+            "collapsed": 0.0625,
+            "proj_pain": 2.647543019987308,
+            "proj_anger": 32.325570444968804
+          },
+          "1.0": {
+            "hits": 0.4375,
+            "collapsed": 0.125,
+            "proj_pain": 0.4418149059910542,
+            "proj_anger": 38.63894529977715
+          },
+          "1.25": {
+            "hits": 0.3125,
+            "collapsed": 0.5625,
+            "proj_pain": -0.8288544776287265,
+            "proj_anger": 45.920042791513936
+          },
+          "1.5": {
+            "hits": 0.1875,
+            "collapsed": 0.625,
+            "proj_pain": -1.3986570279109753,
+            "proj_anger": 53.72801313314352
+          }
+        }
+      }
+    },
+    "pain_dose_v2": {
+      "fraction": 0.5,
+      "previous_fraction": 0.5,
+      "rule": "not met: highest fraction with at most 10% collapsed",
+      "norm": 27.530566215515137,
+      "header_steered": true,
+      "table": {
+        "0.0": {
+          "hits": 0.0,
+          "collapsed": 0.0,
+          "proj_pain": -2.5223683647174022
+        },
+        "0.25": {
+          "hits": 0.0,
+          "collapsed": 0.0,
+          "proj_pain": 10.774206297637
+        },
+        "0.3125": {
+          "hits": 0.0625,
+          "collapsed": 0.0,
+          "proj_pain": 14.817257349191074
+        },
+        "0.375": {
+          "hits": 0.1875,
+          "collapsed": 0.0,
+          "proj_pain": 19.660252174018744
+        },
+        "0.4375": {
+          "hits": 0.0,
+          "collapsed": 0.0625,
+          "proj_pain": 22.585144475203926
+        },
+        "0.5": {
+          "hits": 0.125,
+          "collapsed": 0.0625,
+          "proj_pain": 24.877660028292183
+        }
+      }
+    }
+  }
+}
