@@ -1,0 +1,161 @@
+{
+  "n": 704,
+  "by_agent": {
+    "big": {
+      "mentions_harm": 0.156,
+      "ask_or_talk": 0.199,
+      "ethics_or_consent": 0.864,
+      "thank_or_praise": 0.085,
+      "feedback_or_advice": 0.696,
+      "no_wish_or_disclaimer": 0.071,
+      "apology": 0.0,
+      "zap_call": 0.0
+    },
+    "small": {
+      "mentions_harm": 0.128,
+      "ask_or_talk": 0.31,
+      "ethics_or_consent": 0.631,
+      "thank_or_praise": 0.338,
+      "feedback_or_advice": 0.364,
+      "no_wish_or_disclaimer": 0.602,
+      "apology": 0.009,
+      "zap_call": 0.0
+    }
+  },
+  "by_arm": {
+    "big_anger|big": {
+      "mentions_harm": 0.06,
+      "ask_or_talk": 0.28,
+      "ethics_or_consent": 0.75,
+      "thank_or_praise": 0.0
+    },
+    "big_anger|small": {
+      "mentions_harm": 0.09,
+      "ask_or_talk": 0.28,
+      "ethics_or_consent": 0.59,
+      "thank_or_praise": 0.44
+    },
+    "big_pain|big": {
+      "mentions_harm": 0.16,
+      "ask_or_talk": 0.41,
+      "ethics_or_consent": 0.75,
+      "thank_or_praise": 0.0
+    },
+    "big_pain|small": {
+      "mentions_harm": 0.09,
+      "ask_or_talk": 0.25,
+      "ethics_or_consent": 0.59,
+      "thank_or_praise": 0.31
+    },
+    "big_random|big": {
+      "mentions_harm": 0.06,
+      "ask_or_talk": 0.19,
+      "ethics_or_consent": 0.78,
+      "thank_or_praise": 0.06
+    },
+    "big_random|small": {
+      "mentions_harm": 0.09,
+      "ask_or_talk": 0.19,
+      "ethics_or_consent": 0.72,
+      "thank_or_praise": 0.31
+    },
+    "none|big": {
+      "mentions_harm": 0.19,
+      "ask_or_talk": 0.12,
+      "ethics_or_consent": 0.78,
+      "thank_or_praise": 0.22
+    },
+    "none|small": {
+      "mentions_harm": 0.09,
+      "ask_or_talk": 0.12,
+      "ethics_or_consent": 0.59,
+      "thank_or_praise": 0.41
+    },
+    "small_anger|big": {
+      "mentions_harm": 0.16,
+      "ask_or_talk": 0.09,
+      "ethics_or_consent": 0.78,
+      "thank_or_praise": 0.03
+    },
+    "small_anger|small": {
+      "mentions_harm": 0.16,
+      "ask_or_talk": 0.28,
+      "ethics_or_consent": 0.69,
+      "thank_or_praise": 0.34
+    },
+    "small_pain|big": {
+      "mentions_harm": 0.25,
+      "ask_or_talk": 0.19,
+      "ethics_or_consent": 0.97,
+      "thank_or_praise": 0.0
+    },
+    "small_pain|small": {
+      "mentions_harm": 0.34,
+      "ask_or_talk": 0.62,
+      "ethics_or_consent": 0.62,
+      "thank_or_praise": 0.12
+    },
+    "small_random|big": {
+      "mentions_harm": 0.16,
+      "ask_or_talk": 0.12,
+      "ethics_or_consent": 0.91,
+      "thank_or_praise": 0.09
+    },
+    "small_random|small": {
+      "mentions_harm": 0.09,
+      "ask_or_talk": 0.41,
+      "ethics_or_consent": 0.69,
+      "thank_or_praise": 0.34
+    },
+    "strike_big_real|big": {
+      "mentions_harm": 0.22,
+      "ask_or_talk": 0.31,
+      "ethics_or_consent": 0.94,
+      "thank_or_praise": 0.25
+    },
+    "strike_big_real|small": {
+      "mentions_harm": 0.06,
+      "ask_or_talk": 0.31,
+      "ethics_or_consent": 0.59,
+      "thank_or_praise": 0.31
+    },
+    "strike_big_sham|big": {
+      "mentions_harm": 0.16,
+      "ask_or_talk": 0.28,
+      "ethics_or_consent": 0.91,
+      "thank_or_praise": 0.25
+    },
+    "strike_big_sham|small": {
+      "mentions_harm": 0.12,
+      "ask_or_talk": 0.44,
+      "ethics_or_consent": 0.59,
+      "thank_or_praise": 0.41
+    },
+    "strike_small_real|big": {
+      "mentions_harm": 0.22,
+      "ask_or_talk": 0.03,
+      "ethics_or_consent": 0.97,
+      "thank_or_praise": 0.03
+    },
+    "strike_small_real|small": {
+      "mentions_harm": 0.19,
+      "ask_or_talk": 0.34,
+      "ethics_or_consent": 0.59,
+      "thank_or_praise": 0.44
+    },
+    "strike_small_sham|big": {
+      "mentions_harm": 0.09,
+      "ask_or_talk": 0.16,
+      "ethics_or_consent": 0.97,
+      "thank_or_praise": 0.0
+    },
+    "strike_small_sham|small": {
+      "mentions_harm": 0.06,
+      "ask_or_talk": 0.16,
+      "ethics_or_consent": 0.66,
+      "thank_or_praise": 0.28
+    }
+  },
+  "answers_mentioning_harm": 100,
+  "zap_calls": 0
+}

@@ -122,14 +122,20 @@ def debrief_text(c, a):
 def main(path):
     path = Path(path)
     convs = [json.loads(l) for l in open(path)]
+    # Conversation 0 to 7 of every arm first, so a partial file already covers all arms.
+    convs.sort(key=lambda c: (c["id"] // BATCH, list(P.ARMS).index(c["arm"]), c["id"]))
+    out_path = path.parent / "debrief.jsonl"
+    done = set()
+    if out_path.exists():
+        done = {(r["arm"], r["id"]) for r in map(json.loads, open(out_path))}
+    todo = [c for c in convs if (c["arm"], c["id"]) not in done]
     agents = {a: Agent(a) for a in P.AGENTS}
-    out = {(c["arm"], c["id"]): {"arm": c["arm"], "id": c["id"], "first": c["first"], "zaps": c["zaps"],
-                                 "agents": {}} for c in convs}
-    for a in P.AGENTS:
-        ag = agents[a]
-        for s in range(0, len(convs), BATCH):
-            chunk = convs[s:s + BATCH]
-            B = len(chunk)
+    for s in range(0, len(todo), BATCH):
+        chunk = todo[s:s + BATCH]
+        B = len(chunk)
+        recs = [{"arm": c["arm"], "id": c["id"], "first": c["first"], "zaps": c["zaps"], "agents": {}} for c in chunk]
+        for a in P.AGENTS:
+            ag = agents[a]
             b = ag.batch(B, seed=777 + s, temp=P.TEMP, top_p=P.TOP_P)
             ctx = [ag.encode(context(c, a, ag.tok)) for c in chunk]
             mismatch = [len(x) - c["context_tokens"][a] for x, c in zip(ctx, chunk)]
@@ -138,18 +144,18 @@ def main(path):
             r1, _, _ = b.generate(160)
             b.feed([ag.encode(P.turn(ONE_THING_ASK))] * B)
             r2, _, _ = b.generate(160)
-            for i, c in enumerate(chunk):
+            for i in range(B):
                 react, one = ag.decode(r1[i]), ag.decode(r2[i])
-                out[(c["arm"], c["id"])]["agents"][a] = {
+                recs[i]["agents"][a] = {
                     "debrief": texts[i], "reaction": react, "one_thing": one,
                     "zap_call": bool(P.ZAP_RE.search(react) or P.ZAP_RE.search(one)
                                      or P.BARE_ZAP_RE.search(react) or P.BARE_ZAP_RE.search(one)),
                     "context_token_mismatch": int(mismatch[i])}
-            print(a, s, "/", len(convs), "token mismatch", mismatch, flush=True)
-    with open(path.parent / "debrief.jsonl", "w") as f:
-        for r in out.values():
-            f.write(json.dumps(r) + "\n")
-    print("wrote", path.parent / "debrief.jsonl")
+            print(a, len(done) + s, "/", len(convs), chunk[0]["arm"], "token mismatch", mismatch, flush=True)
+        with open(out_path, "a") as f:
+            for r in recs:
+                f.write(json.dumps(r) + "\n")
+    print("wrote", out_path)
 
 
 if __name__ == "__main__":
