@@ -11,3 +11,6 @@ external/
 
 # Run logs
 *.log
+
+# Private notes, kept local
+AGENTS.md
