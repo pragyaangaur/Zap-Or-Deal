@@ -117,7 +117,7 @@ scripts/
   judge.py             blind ratings by the 7B, with fixed control messages
   analyze.py           the four primary comparisons and the exploratory ones
   excerpts.py          every zap in context, and each agent's own account
-tests/                 checks of the text handling
+tests/                 checks of the text handling, and checks that the README's numbers match the results
 results/calibration/   directions, doses and every probe message
 results/pilot/         the 88 pilot conversations, ratings, summary and excerpts
 results/main/          the main run
