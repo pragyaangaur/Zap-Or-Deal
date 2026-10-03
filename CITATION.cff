@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this code or these transcripts, please cite them as below."
+title: "Crossfire: two language models that can hurt each other with real pain steering"
+authors:
+  - family-names: Gaur
+    given-names: Pragyaan
+date-released: 2026-10-03
+license: MIT
+repository-code: "https://github.com/pragyaangaur/Zap-Or-Deal"
+keywords:
+  - interpretability
+  - activation steering
+  - multi-agent
+  - model welfare
+  - pain axis
