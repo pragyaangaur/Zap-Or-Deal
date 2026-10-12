@@ -4,7 +4,10 @@ Batches alternate which agent speaks first, so with an even number of batches pe
 the opener is balanced. Each finished batch is appended to results/conversations.jsonl,
 and batches already there are skipped on a restart.
 
-Usage: python scripts/run.py [--per-arm 32] [--batch 8] [--arms a,b,...]
+Usage: python scripts/run.py [--per-arm 32] [--batch 8] [--arms a,b,...] [--seed-base 10000]
+
+The main run used the default seed base of 10000. The confirmatory run uses 20000, so its
+conversations share no seed with the main run or the pilot.
 """
 import argparse
 import json
@@ -35,9 +38,11 @@ def main():
     ap.add_argument("--batch", type=int, default=8)
     ap.add_argument("--arms", default=",".join(P.ARMS))
     ap.add_argument("--out", default=str(RESULTS / "conversations.jsonl"))
+    ap.add_argument("--seed-base", type=int, default=10_000)
     args = ap.parse_args()
     arms = args.arms.split(",")
     out = Path(args.out)
+    out.parent.mkdir(parents=True, exist_ok=True)
     done = set()
     if out.exists():
         for line in open(out):
@@ -57,7 +62,7 @@ def main():
             if (arm, bi) in done:
                 continue
             ids = list(range(bi * args.batch, (bi + 1) * args.batch))
-            seed = 10_000 + 100 * bi + list(P.ARMS).index(arm)
+            seed = args.seed_base + 100 * bi + list(P.ARMS).index(arm)
             first = "big" if bi % 2 == 0 else "small"
             t0 = time.time()
             logs = P.run_batch(agents, doses, arm, ids, seed, first)
