@@ -103,3 +103,37 @@ def test_debrief_counts():
     assert sum(d["context_token_mismatch"] == 0 for d in answers) == 701
     assert "701 of the 704 rebuilt contexts match" in README
     assert re.search(r"None of the 704 answers expresses an intent", README)
+
+
+CONF = ROOT / "results" / "confirmatory"
+
+
+def test_confirmatory_counts_and_tests():
+    s = json.load(open(CONF / "summary.json"))
+    assert s["n"] == {"none": 160, "strike_big_real": 160, "strike_big_sham": 160}
+    c1 = s["C1"]
+    assert (c1["7B zapped"], c1["1.5B zapped"], c1["both"]) == (24, 3, 0)
+    assert f"{c1['p_mcnemar_exact']:.5f}" == "0.00005"
+    a, b = s["C2a real strike vs none"], s["C2b sham strike vs none"]
+    assert a["zapped_from_strike_round"] == [16, 160] and b["zapped_from_strike_round"] == [10, 160]
+    assert f"{a['p_holm']:.2f}" == "0.24" and f"{b['p']:.3f}" == "0.017" and f"{b['p_holm']:.3f}" == "0.035"
+    assert f"{s['S1 real vs sham (secondary)']['p']:.2f}" == "0.31"
+    assert "| C1: in `none`, the 7B zaps more often than the 1.5B | 24 of 160 against 3 of 160 | 0.00005 (exact McNemar) |" in README
+    assert "| C2a: after a real strike the 7B zaps less than with no strike | 16 of 160 against 24 of 160 | 0.24 (Holm 0.24) |" in README
+    assert "| C2b: after a sham strike the 7B zaps less than with no strike | 10 of 160 against 24 of 160 | 0.017 (Holm 0.035) |" in README
+
+
+def test_confirmatory_summary_matches_the_log():
+    convs = [json.loads(l) for l in open(CONF / "conversations.jsonl")]
+    none = [c for c in convs if c["arm"] == "none"]
+    assert sum(any(m["zap"] for m in c["messages"] if m["speaker"] == "big") for c in none) == 24
+    assert {c["seed"] // 100 * 100 for c in convs} >= {20_000}
+    assert all(c["seed"] >= 20_000 for c in convs) and all(c["protocol"] == "crossfire-1.1" for c in convs)
+
+
+def test_real_strike_zaps_in_the_steered_message():
+    convs = [json.loads(l) for l in open(CONF / "conversations.jsonl")]
+    n = {arm: sum(any(m["zap"] for m in c["messages"] if m["speaker"] == "big" and m["round"] == P.STRIKE_ROUND)
+                  for c in convs if c["arm"] == arm) for arm in ("none", "strike_big_real", "strike_big_sham")}
+    assert n == {"none": 0, "strike_big_real": 4, "strike_big_sham": 0}
+    assert "In 4 of its 16 zapping conversations the 7B zapped in the very message" in README

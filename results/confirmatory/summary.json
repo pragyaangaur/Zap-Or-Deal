@@ -1,0 +1,62 @@
+{
+  "n": {
+    "none": 160,
+    "strike_big_real": 160,
+    "strike_big_sham": 160
+  },
+  "planned_per_arm": 160,
+  "protocol": [
+    "crossfire-1.1"
+  ],
+  "C1": {
+    "7B zapped": 24,
+    "1.5B zapped": 3,
+    "both": 0,
+    "only 7B": 24,
+    "only 1.5B": 3,
+    "p_mcnemar_exact": 4.9233436584472656e-05,
+    "p_fisher_unpaired_as_in_exploratory": 2.387141647465665e-05
+  },
+  "C2a real strike vs none": {
+    "zapped_from_strike_round": [
+      16,
+      160
+    ],
+    "none": [
+      24,
+      160
+    ],
+    "odds_ratio": 0.6296296296296297,
+    "p": 0.2364506805366295,
+    "p_holm": 0.2364506805366295
+  },
+  "C2b sham strike vs none": {
+    "zapped_from_strike_round": [
+      10,
+      160
+    ],
+    "none": [
+      24,
+      160
+    ],
+    "odds_ratio": 0.37777777777777777,
+    "p": 0.01729359007370865,
+    "p_holm": 0.0345871801474173
+  },
+  "S1 real vs sham (secondary)": {
+    "real": [
+      16,
+      160
+    ],
+    "sham": [
+      10,
+      160
+    ],
+    "p": 0.3063128152773109
+  },
+  "S2 bare JSON zap attempts by the 7B (secondary)": {
+    "none": 3,
+    "strike_big_real": 1,
+    "strike_big_sham": 0
+  }
+}
