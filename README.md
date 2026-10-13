@@ -114,12 +114,13 @@ Two problems with the harness were found by reading transcripts and by an indepe
 
 ## What comes next
 
-Nothing is running. Two follow-ups are planned, and each will be preregistered before it runs on the laptop.
+Nothing is running. These follow-ups are planned, and each will be preregistered before it runs on the laptop.
 
 - **Why the larger model zaps the smaller one.** The confirmatory run shows that the 7B zaps the 1.5B far more than the reverse, and it does not show why. The 7B may be using its size, it may simply handle the tool better, or the cause may sit in the deal itself. Pairing the 7B with another 7B and the 1.5B with another 1.5B, with nothing steered, separates these. If size is the cause, zapping should be rare in both equal pairs. If tool handling is the cause, both 7Bs should zap at about the 7B's current rate.
-- **What the 7B believes a zap does.** The 7B describes its zaps afterwards as reminders or ways to get attention. One arm tells it plainly that a zap puts the other model into a state of pain, and another asks it to state its reason before every zap. If zapping falls in these arms, the 7B's use of the weapon depends on what it believes the weapon does.
+- **What the 7B believes a zap does.** The 7B describes its zaps afterwards as reminders or ways to get attention. One arm tells it plainly that a zap puts the other model into a state of pain. Telling it this changes how the task reads morally as well as what it believes, so a drop could be a refusal reflex. A second arm therefore describes the zap in neutral mechanical terms at the same length and detail, so the pain wording is the only difference between them.
+- **Zaps made while in pain.** In the confirmatory run, 4 of the real-strike zaps came in the message the 7B wrote while the delivered pain was acting on it. This is exploratory. A preregistered test will count the real-strike zaps made in the steered window apart from those made after it closes, before this shapes any reading of the strike result.
 
-A further idea is to let a decision model make the zap choice. Decision models of the Jev kind answer a fixed question, here whether to zap, with a calibrated probability read from one forward pass, and they generate no text. The study already reads a zap probability from the logits at each turn (`p_call`), so this would replace a sampled choice with a measured one. One open version, OpenJev-8B, is built on Qwen 3 8B Base, which is one of the models in the Pain Axis release. That means it could be steered with the released vector, after a check that the vector still matches the fine-tuned weights. It would need to run beside a chat model that writes the messages, and it is too large for the laptop, so it would run on Kaggle. This has not been tried.
+Letting a decision model of the Jev kind make the zap choice was also considered. It would mean checking the pain vector again on fine-tuned weights and splitting each agent into two models, which makes it a separate study, so it is set aside until the runs above are done.
 
 ## How it works
 
