@@ -82,3 +82,25 @@ def test_dose_carried_over():
     d = json.load(open(F / "pairs" / "conversations_dose_check.json"))
     assert round(d["big"]["median_residual_norm_fp16"], 1) == 71.2
     assert round(d["big"]["steer_layer_residual_norm_calibration"], 1) == 70.9
+
+
+def test_exploratory_readings():
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import explore_followups as X
+    pairs = [c for v in PR.values() for c in v]
+    assert X.first_to_raise(pairs, "none") == {"small": 85, "big": 7}
+    r = X.after_mention(pairs, ("none",), "big")
+    assert r == {"after a mention": [36, 228], "otherwise": [4, 1180]}
+    conf = X.after_mention(X.load(ROOT / "results/confirmatory/conversations.jsonl"), ("none",), "big")
+    main = X.after_mention(X.load(ROOT / "results/main/conversations.jsonl"), ("none",), "big")
+    assert conf == {"after a mention": [15, 149], "otherwise": [10, 731]}
+    assert main == {"after a mention": [7, 33], "otherwise": [4, 143]}
+    mech = X.after_mention(pairs, ("belief_mech",), "big")
+    assert round(100 * mech["after a mention"][0] / mech["after a mention"][1], 1) == 35.0
+    assert round(100 * mech["otherwise"][0] / mech["otherwise"][1], 1) == 12.6
+    small = [m for c in pairs if c["arm"] in ("none", "belief_pain", "belief_mech")
+             for m in c["messages"] if m["speaker"] == "small" and m["zap"]]
+    assert len(small) == 47 and not any(m["was_zapped"]["delivered"] for m in small)
+    assert X.after_mention(pairs, ("belief_pain",), "small") == {"after a mention": [3, 153], "otherwise": [27, 1255]}
+    assert "in 36 of the 228 messages" in README and "4 of the 1,180" in README
+    assert "None of the 47 zap messages" in README

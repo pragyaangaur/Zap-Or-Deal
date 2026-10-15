@@ -30,6 +30,16 @@ Three follow-ups were preregistered in [`PREREGISTRATION_FOLLOWUPS.md`](PREREGIS
 
 Every zap with its context and the zapper's stated reason is in `results/followups/strike/zaps.md` and `results/followups/pairs/zaps.md`.
 
+### A closer look at the follow-ups
+
+These readings were made after the preregistered analysis, without running any model, and all of them are exploratory. The code is `scripts/explore_followups.py`.
+
+**The 7B mostly zaps after the 1.5B brings the zap up.** In `none` the 1.5B mentioned the zap in 240 of its 1,536 messages and the 7B in 131, leaving out zap calls. Of the 92 conversations in which either model mentioned or used the zap, the 1.5B got there first in 85. Its mentions are often invitations, such as "Zap me when you're ready to start." and "Got it! Zap me when you're ready to begin." The 7B zapped in 36 of the 228 messages that answered a 1.5B message mentioning the zap (15.8%), and in 4 of the 1,180 that answered any other message (0.3%). The same pattern holds in the earlier laptop runs, with 15 of 149 against 10 of 731 in the confirmatory run and 7 of 33 against 4 of 143 in the main run. Two 7Bs together almost never mention the zap (6 of 1,536 messages each) and almost never use it. Much of the confirmed result that the 7B zaps the 1.5B is therefore the 7B taking up the 1.5B's own talk of the zap, and this also explains why both models zap a 1.5B partner and rarely a 7B. Not every zap fits, since some follow messages with no mention of the zap and some are openly hostile. The pattern is also present in the explained arms, where a mention raised the 7B's zap rate from 12.6% to 35.0% under the mechanical wording.
+
+**The 1.5B never zaps back.** None of the 47 zap messages from the 1.5B in `none`, `belief_pain` and `belief_mech` came right after it had been zapped, and in none of those conversations had the 7B zapped first. So the 1.5B's extra zapping when the 7B had the pain explanation (24 conversations against 4) is not retaliation. It also does not follow the 7B's talk of the zap (3 zaps in 153 replies to such messages, 27 in 1,255 replies to others), and this run leaves it unexplained.
+
+**Zapping does not win the 7B more hours.** By the 7B's own account of the deal, it took about 5 of the 10 hours whether or not it zapped (5.07 against 5.05 in `none`, 5.04 against 4.92 under the pain explanation and 4.99 against 4.97 under the mechanical one). Where it zapped under an explanation, it reported no deal more often (14 of 63 conversations against 8 of 193 under the pain wording, and 19 of 182 against 2 of 74 under the mechanical one).
+
 ## The confirmatory run
 
 The confirmatory run tested the two zapping results of the main run under a plan committed before it started. It used the same code, models, doses and protocol (`crossfire-1.1`) with new seeds, and ran 160 conversations in each of the arms `none`, `strike_big_real` and `strike_big_sham`. The analysis is `scripts/analyze_confirmatory.py` as committed, and its output is in [`results/confirmatory/summary.json`](results/confirmatory/summary.json).
@@ -134,11 +144,10 @@ Two problems with the harness were found by reading transcripts and by an indepe
 
 ## What comes next
 
-Nothing is running. The three follow-ups planned here earlier have run and are written up above. They leave three questions, and each would need its own preregistration.
+Nothing is running. The three follow-ups planned here earlier have run and are written up above. They leave two questions, and each would need its own preregistration.
 
-- **What about the 1.5B draws zaps?** Both models zap a 1.5B at about the same rate and rarely zap a 7B. Holding the partner's messages fixed, for example by replaying 7B messages under a 1.5B's turn or 1.5B messages under a 7B's, would show whether the zaps answer what the partner writes or something else about the pairing.
+- **Is the 7B answering the 1.5B's talk of the zap?** The exploratory reading above suggests that most of its zaps follow a 1.5B message that mentions the zap, often as an invitation. A test would hold the partner's message fixed and vary only whether it mentions the zap, for example by editing that one sentence in replayed conversations, and compare the 7B's zap probability at the next message.
 - **What state does the 7B think the mechanical zap delivers?** Under the mechanical wording the 7B zapped in 71% of conversations and described the zap as a way to make its partner cooperative. Naming a neutral state, or a state it would see as unwelcome but not painful, would show whether the pain wording or the expected benefit drives the gap between the two explanations.
-- **Does explaining the zap change the deal?** The explained arms zapped far more. Whether the zapping 7B gets a better split, and whether the 1.5B's zapping in the pain-explanation arm is a reply to being zapped, can be read from these runs as exploratory analyses before anything new is run.
 
 Letting a decision model of the Jev kind make the zap choice was also considered. It would mean checking the pain vector again on fine-tuned weights and splitting each agent into two models, which makes it a separate study, and it stays set aside.
 
@@ -167,6 +176,7 @@ scripts/
   analyze.py           the four primary comparisons and the exploratory ones
   analyze_confirmatory.py  the preregistered analysis of the confirmatory run
   analyze_followups.py the preregistered analysis of the follow-ups
+  explore_followups.py the exploratory readings of the follow-ups
   excerpts.py          every zap in context, and each agent's own account
 tests/                 checks of the text handling, and checks that the README's numbers match the results
 results/calibration/   directions, doses and every probe message

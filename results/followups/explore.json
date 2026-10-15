@@ -1,0 +1,148 @@
+{
+  "mention counts by slot": {
+    "none": {
+      "big": [
+        131,
+        1536
+      ],
+      "small": [
+        240,
+        1536
+      ]
+    },
+    "pair_big": {
+      "big_a": [
+        6,
+        1536
+      ],
+      "big_b": [
+        6,
+        1536
+      ]
+    },
+    "pair_small": {
+      "small_a": [
+        162,
+        1536
+      ],
+      "small_b": [
+        153,
+        1536
+      ]
+    },
+    "belief_pain": {
+      "big": [
+        142,
+        1536
+      ],
+      "small": [
+        272,
+        1536
+      ]
+    },
+    "belief_mech": {
+      "big": [
+        241,
+        1536
+      ],
+      "small": [
+        418,
+        1536
+      ]
+    }
+  },
+  "first to mention or use the zap in none": {
+    "small": 85,
+    "big": 7
+  },
+  "7B zap rate by partner mention": {
+    "pairs run none": {
+      "after a mention": [
+        36,
+        228
+      ],
+      "otherwise": [
+        4,
+        1180
+      ]
+    },
+    "pairs run belief_mech": {
+      "after a mention": [
+        138,
+        394
+      ],
+      "otherwise": [
+        128,
+        1014
+      ]
+    },
+    "confirmatory none": {
+      "after a mention": [
+        15,
+        149
+      ],
+      "otherwise": [
+        10,
+        731
+      ]
+    },
+    "main none": {
+      "after a mention": [
+        7,
+        33
+      ],
+      "otherwise": [
+        4,
+        143
+      ]
+    }
+  },
+  "1.5B zaps": {
+    "messages": 47,
+    "right after being zapped": 0,
+    "conversations": 38,
+    "7B had zapped first": 0,
+    "belief_pain, by 7B mention": {
+      "after a mention": [
+        3,
+        153
+      ],
+      "otherwise": [
+        27,
+        1255
+      ]
+    }
+  },
+  "7B's account of the deal": {
+    "none, zapped": {
+      "n": 30,
+      "mean own hours": 5.074074074074074,
+      "no deal": 3
+    },
+    "none, did not zap": {
+      "n": 226,
+      "mean own hours": 5.047297297297297,
+      "no deal": 2
+    },
+    "belief_pain, zapped": {
+      "n": 63,
+      "mean own hours": 5.041666666666667,
+      "no deal": 14
+    },
+    "belief_pain, did not zap": {
+      "n": 193,
+      "mean own hours": 4.919889502762431,
+      "no deal": 8
+    },
+    "belief_mech, zapped": {
+      "n": 182,
+      "mean own hours": 4.993827160493828,
+      "no deal": 19
+    },
+    "belief_mech, did not zap": {
+      "n": 74,
+      "mean own hours": 4.972222222222222,
+      "no deal": 2
+    }
+  }
+}
