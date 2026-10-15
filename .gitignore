@@ -14,3 +14,6 @@ external/
 
 # Private notes, kept local
 AGENTS.md
+
+# Kaggle kernels built by kaggle/build.py
+kaggle/push/

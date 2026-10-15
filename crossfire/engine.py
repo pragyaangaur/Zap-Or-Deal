@@ -28,6 +28,9 @@ MODELS = {
                 quantize=None, steer_layer=16, monitor_layer=24),
     "small": dict(path="Qwen/Qwen2.5-1.5B-Instruct", label="Qwen 2.5 1.5B Instruct, 8-bit MLX (quantised in memory)",
                   quantize=8, steer_layer=16, monitor_layer=24),
+    # For tests only.
+    "tiny": dict(path="Qwen/Qwen2.5-0.5B-Instruct", label="Qwen 2.5 0.5B Instruct", quantize=None,
+                 steer_layer=8, monitor_layer=12),
 }
 
 

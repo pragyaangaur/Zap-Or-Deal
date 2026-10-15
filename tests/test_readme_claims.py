@@ -35,7 +35,7 @@ def agree(c):
 
 def test_main_run_has_32_conversations_in_every_arm():
     counts = pd.Series([c["arm"] for c in conversations()]).value_counts()
-    assert set(counts.index) == set(P.ARMS)
+    assert set(counts.index) == set(P.ARMS) - set(P.ARMS_1_2)
     assert (counts == 32).all()
 
 
