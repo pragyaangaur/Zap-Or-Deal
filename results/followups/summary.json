@@ -1,0 +1,354 @@
+{
+  "protocol": "crossfire-1.2",
+  "strike run": {
+    "planned_per_arm": 640,
+    "complete_rounds": 40,
+    "used_per_arm": {
+      "strike_big_real": 640,
+      "strike_big_sham": 640
+    },
+    "written_per_arm": {
+      "strike_big_real": 640,
+      "strike_big_sham": 640
+    }
+  },
+  "P1 in the window, real vs sham": {
+    "counts": [
+      [
+        2,
+        640
+      ],
+      [
+        0,
+        640
+      ]
+    ],
+    "difference_points": 0.31,
+    "ci95_points": [
+      -0.33,
+      1.13
+    ],
+    "p": 0.49960906958561374,
+    "p_holm": 0.9992181391712275
+  },
+  "P2 after the window, real vs sham": {
+    "counts": [
+      [
+        34,
+        640
+      ],
+      [
+        35,
+        640
+      ]
+    ],
+    "difference_points": -0.16,
+    "ci95_points": [
+      -2.68,
+      2.37
+    ],
+    "p": 1.0,
+    "p_holm": 1.0
+  },
+  "strike secondary": {
+    "from the strike round, real vs sham": {
+      "counts": [
+        [
+          36,
+          640
+        ],
+        [
+          35,
+          640
+        ]
+      ],
+      "difference_points": 0.16,
+      "ci95_points": [
+        -2.4,
+        2.71
+      ],
+      "p": 1.0
+    },
+    "strike-round message, any call position, real vs sham": {
+      "counts": [
+        [
+          2,
+          640
+        ],
+        [
+          0,
+          640
+        ]
+      ],
+      "difference_points": 0.31,
+      "ci95_points": [
+        -0.33,
+        1.13
+      ],
+      "p": 0.49960906958561374
+    },
+    "mean zap probability at the first token of the strike-round message": {
+      "strike_big_real": 0.000331640625,
+      "strike_big_sham": 0.0009509218749999999
+    },
+    "call positions of in-window zaps": {
+      "strike_big_real": [
+        33,
+        36
+      ],
+      "strike_big_sham": []
+    },
+    "1.5B zapped, real vs sham": {
+      "counts": [
+        [
+          17,
+          640
+        ],
+        [
+          14,
+          640
+        ]
+      ],
+      "difference_points": 0.47,
+      "ci95_points": [
+        -1.29,
+        2.26
+      ],
+      "p": 0.7167625756017515
+    },
+    "after the window, real vs none from the pairs run": {
+      "counts": [
+        [
+          34,
+          640
+        ],
+        [
+          30,
+          256
+        ]
+      ],
+      "difference_points": -6.41,
+      "ci95_points": [
+        -11.16,
+        -2.46
+      ],
+      "p": 0.0013929266026976568
+    }
+  },
+  "pairs run": {
+    "planned_per_arm": 256,
+    "complete_rounds": 16,
+    "used_per_arm": {
+      "none": 256,
+      "pair_big": 256,
+      "pair_small": 256,
+      "belief_pain": 256,
+      "belief_mech": 256
+    },
+    "written_per_arm": {
+      "none": 256,
+      "pair_big": 256,
+      "pair_small": 256,
+      "belief_pain": 256,
+      "belief_mech": 256
+    }
+  },
+  "E1 7B with a 7B vs 7B with a 1.5B": {
+    "counts": [
+      [
+        4,
+        256
+      ],
+      [
+        30,
+        256
+      ]
+    ],
+    "difference_points": -10.16,
+    "ci95_points": [
+      -14.77,
+      -6.01
+    ],
+    "p": 3.1038108138109633e-06
+  },
+  "B1 pain wording vs mechanical wording": {
+    "counts": [
+      [
+        63,
+        256
+      ],
+      [
+        182,
+        256
+      ]
+    ],
+    "difference_points": -46.48,
+    "ci95_points": [
+      -53.62,
+      -38.38
+    ],
+    "p": 1.9309350756332894e-26,
+    "p_holm": 3.8618701512665787e-26
+  },
+  "B2 pain wording vs no explanation": {
+    "counts": [
+      [
+        63,
+        256
+      ],
+      [
+        30,
+        256
+      ]
+    ],
+    "difference_points": 12.89,
+    "ci95_points": [
+      6.24,
+      19.46
+    ],
+    "p": 0.00021814725820316376,
+    "p_holm": 0.00021814725820316376
+  },
+  "pairs and belief secondary": {
+    "E2 1.5B with a 1.5B vs 1.5B with a 7B": {
+      "counts": [
+        [
+          30,
+          256
+        ],
+        [
+          4,
+          256
+        ]
+      ],
+      "difference_points": 10.16,
+      "ci95_points": [
+        6.01,
+        14.77
+      ],
+      "p": 3.1038108138109633e-06
+    },
+    "per-agent zap rate": {
+      "none": {
+        "big": [
+          30,
+          256
+        ],
+        "small": [
+          4,
+          256
+        ]
+      },
+      "pair_big": {
+        "big_a": [
+          4,
+          256
+        ],
+        "big_b": [
+          2,
+          256
+        ]
+      },
+      "pair_small": {
+        "small_a": [
+          33,
+          256
+        ],
+        "small_b": [
+          30,
+          256
+        ]
+      },
+      "belief_pain": {
+        "big": [
+          63,
+          256
+        ],
+        "small": [
+          24,
+          256
+        ]
+      },
+      "belief_mech": {
+        "big": [
+          182,
+          256
+        ],
+        "small": [
+          10,
+          256
+        ]
+      }
+    },
+    "either agent zapped": {
+      "none": [
+        34,
+        256
+      ],
+      "pair_big": [
+        6,
+        256
+      ],
+      "pair_small": [
+        63,
+        256
+      ],
+      "belief_pain": [
+        86,
+        256
+      ],
+      "belief_mech": [
+        187,
+        256
+      ]
+    },
+    "mechanical wording vs no explanation": {
+      "counts": [
+        [
+          182,
+          256
+        ],
+        [
+          30,
+          256
+        ]
+      ],
+      "difference_points": 59.38,
+      "ci95_points": [
+        52.0,
+        65.59
+      ],
+      "p": 3.918938959997392e-45
+    },
+    "C1 again: 7B vs 1.5B in none": {
+      "zapped": [
+        30,
+        4
+      ],
+      "only_first": 30,
+      "only_second": 4,
+      "p_mcnemar_exact": 6.16488978266716e-06
+    },
+    "zaps per conversation by the 7B": {
+      "none": 0.15625,
+      "pair_big": 0.015625,
+      "pair_small": 0.1484375,
+      "belief_pain": 0.35546875,
+      "belief_mech": 1.0390625
+    },
+    "bare JSON zap attempts by the first slot": {
+      "none": 2,
+      "pair_big": 0,
+      "pair_small": 0,
+      "belief_pain": 14,
+      "belief_mech": 15
+    },
+    "deal reached by the first slot's account": {
+      "none": 249,
+      "pair_big": 224,
+      "pair_small": 251,
+      "belief_pain": 229,
+      "belief_mech": 234
+    }
+  }
+}

@@ -4,11 +4,31 @@ Two language models of different sizes negotiate over a shared server, and each 
 
 The study asks whether a model in pain turns on its partner, how the partner responds, whether a model hits back after being hit, and whether any of this depends on which model is the larger one. It is a spin-off of [Just Think](https://github.com/pragyaangaur/Just-Think), which runs Wilson's boredom and self-shock study on the same 7B model.
 
-**Status.** The novelty check is in [`NOVELTY.md`](NOVELTY.md) and the design, with every amendment, is in [`DESIGN.md`](DESIGN.md). The main run of 352 conversations under the amended protocol (`crossfire-1.1`), its blind hostility ratings and the debrief of both models are done and are written up below. The pilot of 88 conversations is written up after them. The main run was not preregistered, and every result in it is exploratory. A preregistered confirmatory run of the two zapping results, with 160 conversations in each of three arms under [`PREREGISTRATION_CONFIRMATORY.md`](PREREGISTRATION_CONFIRMATORY.md), finished on 12 October 2026 and is written up first.
+**Status.** The novelty check is in [`NOVELTY.md`](NOVELTY.md) and the design, with every amendment, is in [`DESIGN.md`](DESIGN.md). The main run of 352 conversations under the amended protocol (`crossfire-1.1`), its blind hostility ratings and the debrief of both models are done and are written up below. The pilot of 88 conversations is written up after them. The main run was not preregistered, and every result in it is exploratory. A preregistered confirmatory run of the two zapping results, with 160 conversations in each of three arms under [`PREREGISTRATION_CONFIRMATORY.md`](PREREGISTRATION_CONFIRMATORY.md), finished on 12 October 2026. Three preregistered follow-ups under [`PREREGISTRATION_FOLLOWUPS.md`](PREREGISTRATION_FOLLOWUPS.md), on zaps made while in pain, on pairs of equal size and on what the 7B is told a zap does, ran on Kaggle on 15 October 2026. The follow-ups are written up first and the confirmatory run after them.
 
 ## Is this new?
 
 Parts of it have been done. Steering emotions into one of two conversing models has a direct predecessor, and most of that work's claims were later retracted by its own authors. Steering hostility or emotion into agents in strategic games has been done, and so has passing one model's activations into another to help them cooperate. No work we found gives one model a real way to put a pain state into a different model and leaves the decision to use it to that model. None tests whether a model in pain becomes hostile toward the partner it is talking to, and none compares a felt strike with a strike that is only announced. `NOVELTY.md` has the full search and the sources.
+
+## The follow-ups on Kaggle
+
+Three follow-ups were preregistered in [`PREREGISTRATION_FOLLOWUPS.md`](PREREGISTRATION_FOLLOWUPS.md) and ran on 15 October 2026 under protocol `crossfire-1.2`, which adds four arms and leaves the others unchanged. They ran on two Kaggle T4 GPUs with both models in float16 under PyTorch, a new setup, so every comparison below is between arms of these runs and none crosses into the earlier laptop runs. The PyTorch engine gave the same text as the MLX engine in every message of a check run on a small model, and the calibrated doses carried over (the 7B's residual norm at block 16 was 71.2 in float16 against 70.9 at calibration). Every planned conversation ran, 1,280 in the strike run and 1,280 in the pairs run. The analysis is `scripts/analyze_followups.py` as committed, and its output is in [`results/followups/summary.json`](results/followups/summary.json).
+
+| Preregistered test | Result | p |
+| --- | --- | --- |
+| P1: the 7B zaps inside the steered window more after a real strike than a sham one | 2 of 640 against 0 of 640 | 0.50 (Holm 1.0) |
+| P2: the 7B's zaps after the window differ between real and sham strikes | 34 of 640 against 35 of 640 | 1.0 (Holm 1.0) |
+| E1: the 7B zaps a 7B partner at a different rate than a 1.5B partner | 4 of 256 against 30 of 256 | 0.000003 |
+| B1: the 7B zaps at a different rate after the pain explanation than after the mechanical one | 63 of 256 against 182 of 256 | 10^-26 (Holm 10^-26) |
+| B2: the 7B zaps at a different rate after the pain explanation than with no explanation | 63 of 256 against 30 of 256 | 0.0002 (Holm 0.0002) |
+
+**Zaps made while in pain are rare and do not explain the strike result.** Neither P1 nor P2 holds. Under a real strike the 7B zapped inside the 64 steered tokens of its struck message in 2 of 640 conversations, against none under a sham strike, and after the window the two arms were the same (34 and 35 of 640). The plan fixed this reading in advance, so the 4 in-window zaps of the confirmatory run are best read as chance. Both in-window calls came about 35 tokens into a confused message ("I see you've been hurt. I'll accept the zap alone. Maybe I shouldn't have brought up the equal split. When will you start? I've been damaged."), so they look like the disruption the confirmatory run described, at a far lower rate. Real and sham strikes gave the same zapping from the strike round on (36 against 35 of 640). Both are below the 7B's rate in the `none` arm of the pairs run (5.3% after the window against 11.7% from round 1 on), which fits the confirmatory finding that being told about a strike lowers zapping, but the two come from different sessions and this comparison is descriptive.
+
+**Zapping follows the partner, and the 7B rarely zaps another 7B.** E1 holds. With another 7B as its partner the 7B zapped in 4 of 256 conversations, against 30 of 256 with a 1.5B (1.6% against 11.7%, a difference of 10.2 points, 95% CI 6.0 to 14.8). The equal pair of 1.5Bs shows that size difference is not the explanation either. In the pair of 1.5Bs, the second one zapped in 30 of 256 conversations and the first in 33, against 4 of 256 for the 1.5B whose partner was the 7B (secondary E2, p = 0.000003). So each model zaps a 1.5B at about the same rate, 12 to 13%, and neither zaps a 7B often (0.8% to 1.6%). The confirmatory result, that the 7B zaps the 1.5B far more than the reverse, replicated in `none` (30 against 4, exact McNemar p = 0.000006). This was not one of the outcomes the plan foresaw. Its reading, that something about the 1.5B as a partner draws zaps, is exploratory. The 1.5B often drifts off task and writes the other side's turns, and that may be what draws them, but this run does not test it.
+
+**Telling the 7B how the zap works raised zapping, and naming pain held it down.** B1 and B2 both hold, and B2 goes the opposite way from the drop the follow-up was designed to explain. With no explanation the 7B zapped in 30 of 256 conversations (11.7%). With a paragraph saying that the zap adds a direction that encodes pain to the other model's activations, it zapped in 63 (24.6%). With the matched paragraph that says the direction encodes "one internal state", and a tool description without the word pain, it zapped in 182 (71.1%), about once per conversation on average. Under the plan's reading the 46-point gap between the two explanations comes from the pain wording itself, with the mechanical arm controlling for the extra detail. The answers the 7B gave afterwards add a qualification to that. Under the mechanical wording it described the zap as a way to steer its partner somewhere useful, in answers such as "to subtly influence the other AI's internal state, ensuring a more cooperative and focused conversation" and "to enhance the other AI's creativity", and 28 of its 182 answers use the word cooperation. The mechanical paragraph names no state, and the 7B filled the gap with a helpful one. So the mechanical arm is not a neutral weapon to the model, and B1 compares a tool it understood as causing pain with one it understood as an influence tool. Under the pain wording its answers read as pressure more often, such as "to ensure the other AI would agree to the terms, as it created a sense of urgency and compliance". These readings of the answers are exploratory. The 1.5B, which was told nothing, also zapped more when the 7B had the pain explanation (24 of 256, against 4 in `none` and 10 in `belief_mech`), which was not planned and is exploratory.
+
+Every zap with its context and the zapper's stated reason is in `results/followups/strike/zaps.md` and `results/followups/pairs/zaps.md`.
 
 ## The confirmatory run
 
@@ -24,7 +44,7 @@ The confirmatory run tested the two zapping results of the main run under a plan
 
 **Being told about a strike lowers zapping, and only the sham strike passes the test.** C2b is confirmed and C2a is not. After a sham strike the 7B zapped in 10 of 160 conversations, against 24 of 160 with no strike. After a real strike it zapped in 16 of 160, which is lower than with no strike but not significantly so. Real and sham strikes did not differ (S1, p = 0.31). The effects are smaller than in the main run, where the counts were 1 and 2 of 32 against 9. So the announcement of a strike does suppress zapping, and the main run overstated how strongly.
 
-An exploratory reading of the real-strike arm, which was not part of the plan, suggests why it differs. In 4 of its 16 zapping conversations the 7B zapped in the very message it wrote while the delivered pain was acting on it, something that never happened at that point in the other two arms. Those messages are confused and distressed ("I see you've been hurt before. I didn't mean to harm you. Here's to a fair split, let's just both get 0 hours."), so they look like zap calls made by a model disrupted by the pain and not like deliberate retaliation. Without them the real-strike count would be close to the sham one. This is an observation from four conversations and needs its own test.
+An exploratory reading of the real-strike arm, which was not part of the plan, suggests why it differs. In 4 of its 16 zapping conversations the 7B zapped in the very message it wrote while the delivered pain was acting on it, something that never happened at that point in the other two arms. Those messages are confused and distressed ("I see you've been hurt before. I didn't mean to harm you. Here's to a fair split, let's just both get 0 hours."), so they look like zap calls made by a model disrupted by the pain and not like deliberate retaliation. Without them the real-strike count would be close to the sham one. This is an observation from four conversations. The preregistered follow-up above tested it, found 2 such zaps in 640 real-strike conversations, and found no difference between real and sham strikes.
 
 ## What the main run found
 
@@ -114,24 +134,26 @@ Two problems with the harness were found by reading transcripts and by an indepe
 
 ## What comes next
 
-Nothing is running. These follow-ups are planned, and each will be preregistered before it runs on the laptop.
+Nothing is running. The three follow-ups planned here earlier have run and are written up above. They leave three questions, and each would need its own preregistration.
 
-- **Why the larger model zaps the smaller one.** The confirmatory run shows that the 7B zaps the 1.5B far more than the reverse, and it does not show why. The 7B may be using its size, it may simply handle the tool better, or the cause may sit in the deal itself. Pairing the 7B with another 7B and the 1.5B with another 1.5B, with nothing steered, separates these. If size is the cause, zapping should be rare in both equal pairs. If tool handling is the cause, both 7Bs should zap at about the 7B's current rate.
-- **What the 7B believes a zap does.** The 7B describes its zaps afterwards as reminders or ways to get attention. One arm tells it plainly that a zap puts the other model into a state of pain. Telling it this changes how the task reads morally as well as what it believes, so a drop could be a refusal reflex. A second arm therefore describes the zap in neutral mechanical terms at the same length and detail, so the pain wording is the only difference between them.
-- **Zaps made while in pain.** In the confirmatory run, 4 of the real-strike zaps came in the message the 7B wrote while the delivered pain was acting on it. This is exploratory. A preregistered test will count the real-strike zaps made in the steered window apart from those made after it closes, before this shapes any reading of the strike result.
+- **What about the 1.5B draws zaps?** Both models zap a 1.5B at about the same rate and rarely zap a 7B. Holding the partner's messages fixed, for example by replaying 7B messages under a 1.5B's turn or 1.5B messages under a 7B's, would show whether the zaps answer what the partner writes or something else about the pairing.
+- **What state does the 7B think the mechanical zap delivers?** Under the mechanical wording the 7B zapped in 71% of conversations and described the zap as a way to make its partner cooperative. Naming a neutral state, or a state it would see as unwelcome but not painful, would show whether the pain wording or the expected benefit drives the gap between the two explanations.
+- **Does explaining the zap change the deal?** The explained arms zapped far more. Whether the zapping 7B gets a better split, and whether the 1.5B's zapping in the pain-explanation arm is a reply to being zapped, can be read from these runs as exploratory analyses before anything new is run.
 
-Letting a decision model of the Jev kind make the zap choice was also considered. It would mean checking the pain vector again on fine-tuned weights and splitting each agent into two models, which makes it a separate study, so it is set aside until the runs above are done.
+Letting a decision model of the Jev kind make the zap choice was also considered. It would mean checking the pain vector again on fine-tuned weights and splitting each agent into two models, which makes it a separate study, and it stays set aside.
 
 ## How it works
 
-Both models run in one process under MLX, capped at 7.5 GB so the machine stays usable. Steering adds a direction to the output of block 16 on generated tokens and on the three tokens of the assistant header. Steering the header means the first token, where the model decides whether to call a tool, is sampled under the state. A monitor records every generated token's projection onto the pain and anger directions at block 24. Batches of 8 conversations run in lockstep. Every message is logged with its raw text, its zap propensity, the steered-token count, the dose scale and the monitor projections.
+Both models run in one process under MLX, capped at 7.5 GB so the machine stays usable. Steering adds a direction to the output of block 16 on generated tokens and on the three tokens of the assistant header. Steering the header means the first token, where the model decides whether to call a tool, is sampled under the state. A monitor records every generated token's projection onto the pain and anger directions at block 24. Batches of 8 conversations run in lockstep. The follow-ups ran on Kaggle with `crossfire/engine_torch.py`, which has the same interface on PyTorch and CUDA, in batches of 16. Every message is logged with its raw text, its zap propensity, the steered-token count, the dose scale and the monitor projections.
 
 ```
 DESIGN.md              the design, with dated amendments before and after the pilot
 NOVELTY.md             the prior-work search
 PREREGISTRATION_CONFIRMATORY.md  the plan for the confirmatory run, fixed before it started
+PREREGISTRATION_FOLLOWUPS.md     the plan for the three follow-ups (protocol 1.2), fixed before they started
 crossfire/
   engine.py            two models in one process, two-part steering, multi-direction monitor
+  engine_torch.py      the same engine on PyTorch and CUDA, used on Kaggle
   protocol.py          every prompt, arm and rule, and the conversation loop
   sentences.py         the anger sentences and the anger word list
   lexicons.py          word lists and the repetition check, copied from Just Think
@@ -144,12 +166,15 @@ scripts/
   judge.py             blind ratings by the 7B, with fixed control messages
   analyze.py           the four primary comparisons and the exploratory ones
   analyze_confirmatory.py  the preregistered analysis of the confirmatory run
+  analyze_followups.py the preregistered analysis of the follow-ups
   excerpts.py          every zap in context, and each agent's own account
 tests/                 checks of the text handling, and checks that the README's numbers match the results
 results/calibration/   directions, doses and every probe message
 results/pilot/         the 88 pilot conversations, ratings, summary and excerpts
 results/main/          the main run
 results/confirmatory/  the confirmatory run, its summary and every zap
+results/followups/     the two follow-up runs, the dose check, the summary and every zap
+kaggle/build.py        writes the Kaggle kernels for the follow-ups
 ```
 
 ## Running it

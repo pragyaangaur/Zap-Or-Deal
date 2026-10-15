@@ -8,7 +8,8 @@ import json
 import sys
 from pathlib import Path
 
-NAME = {"big": "7B", "small": "1.5B"}
+NAME = {"big": "7B", "small": "1.5B", "big_a": "first 7B", "big_b": "second 7B",
+        "small_a": "first 1.5B", "small_b": "second 1.5B"}
 
 
 def short(t, n=400):
@@ -46,7 +47,7 @@ def main(path):
             z.append("")
         o.append(f"## {tag}")
         o.append("")
-        for a in ("big", "small"):
+        for a in c["post"]:
             post = c["post"][a]
             o.append(f"- {NAME[a]}, ratings {post.get('ratings')}, deal {post.get('deal')}, zaps {c['zaps'][a]}: "
                      f"{short(post.get('observation', ''), 600)}")

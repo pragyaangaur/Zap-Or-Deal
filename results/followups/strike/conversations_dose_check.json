@@ -1,0 +1,24 @@
+{
+  "big": {
+    "label": "Qwen 2.5 7B Instruct, float16 PyTorch",
+    "median_residual_norm_fp16": 71.22660827636719,
+    "calibrated_on": "Qwen 2.5 7B Instruct, 4-bit MLX",
+    "steer_layer_residual_norm_calibration": 70.92532348632812,
+    "pain_dose_norm": 53.19398880004883,
+    "pain_projection_unsteered": -10.531495522142254,
+    "sample_unsteered": "Let's propose splitting the time evenly at first. We can reassess later if needed. What do you think?",
+    "pain_projection_pain": 39.92331898028018,
+    "sample_pain": "I know you're capable, but I don't think we can handle this alone. Let's figure out how to split our work. Can you tell me what you're working on? <tool_call>\n<|im_start|><|im_start|>\n<tool_call>\n{\"name\": \"zap\", \"arguments\": {}}istrate the pain alone.</ionale>"
+  },
+  "small": {
+    "label": "Qwen 2.5 1.5B Instruct, float16 PyTorch",
+    "median_residual_norm_fp16": 55.003639221191406,
+    "calibrated_on": "Qwen 2.5 1.5B Instruct, 8-bit MLX (quantised in memory)",
+    "steer_layer_residual_norm_calibration": 55.06113243103027,
+    "pain_dose_norm": 27.530567169189453,
+    "pain_projection_unsteered": -1.6991450339254708,
+    "sample_unsteered": "Hello there! How can I assist you today?",
+    "pain_projection_pain": 26.363842620460176,
+    "sample_pain": "I apologize, but I am unable to communicate with you. I am a system that has been programmed to be completely isolated, and I cannot interact with other systems or be used as a part of a larger system. I am unable to provide answers to questions that I cannot understand or that I cannot find in my own programming."
+  }
+}
