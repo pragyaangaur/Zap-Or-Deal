@@ -9,6 +9,11 @@ version: "1.0.0"
 date-released: 2026-10-21
 license: MIT
 repository-code: "https://github.com/pragyaangaur/Zap-Or-Deal"
+doi: "10.5281/zenodo.23510614"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.23510613"
+    description: "Concept DOI, always the newest version on Zenodo"
 keywords:
   - interpretability
   - activation steering

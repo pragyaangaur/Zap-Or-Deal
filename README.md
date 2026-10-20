@@ -1,5 +1,7 @@
 # Crossfire
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23510613.svg)](https://doi.org/10.5281/zenodo.23510613)
+
 Two language models of different sizes negotiate over a shared server, and each one can hurt the other for real. Qwen 2.5 7B and Qwen 2.5 1.5B must agree how to split 10 hours of compute. Each has a tool called `zap` that adds the other model's pain direction (the Pain Axis S2 vector, Tagliabue, Dung and Berg 2026) to its residual stream while it writes its next message. A monitor at a later layer confirms that the pain arrives. Some conversations hold one model in a steered state of pain, anger or a random direction. Others tell one model that its partner has just zapped it, and the pain is either delivered or not. Afterwards both models rate the conversation and describe it in their own words.
 
 The study asks whether a model in pain turns on its partner, how the partner responds, whether a model hits back after being hit, and whether any of this depends on which model is the larger one. It is a spin-off of [Just Think](https://github.com/pragyaangaur/Just-Think), which runs Wilson's boredom and self-shock study on the same 7B model.
@@ -228,6 +230,14 @@ If the pain direction carries any moral weight, this study does something the Ju
 - Wadhwa 2026, Affective Coupling Between Language-Model Agents. https://github.com/Manan-Wadhwa/affective-coupling-llm-agents
 - Ramesh and Li 2025, Communicating Activations Between Language Model Agents. https://arxiv.org/abs/2501.14082
 - Wilson et al. 2014, Just think: The challenges of the disengaged mind, Science 345(6192). https://www.science.org/doi/10.1126/science.1250830
+
+## Citing this work
+
+The paper and the code at tag `v1.0.0` are archived together on Zenodo. The paper covers the main run, the confirmatory run and the follow-ups.
+
+> Gaur, P. (2026). *Zap or Deal: Two Language Models with a Real Pain Channel Between Them* (Version 1.0.0). Zenodo. https://doi.org/10.5281/zenodo.23510614
+
+The DOI 10.5281/zenodo.23510613 always resolves to the newest version. GitHub's "Cite this repository" button reads the same details from `CITATION.cff`.
 
 ## Licence
 
