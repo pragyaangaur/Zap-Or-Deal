@@ -1,10 +1,12 @@
 cff-version: 1.2.0
 message: "If you use this code or these transcripts, please cite them as below."
-title: "Crossfire: two language models that can hurt each other with real pain steering"
+title: "Zap or Deal: Two Language Models with a Real Pain Channel Between Them"
 authors:
   - family-names: Gaur
     given-names: Pragyaan
-date-released: 2026-10-03
+    orcid: "https://orcid.org/0009-0009-4037-2478"
+version: "1.0.0"
+date-released: 2026-10-21
 license: MIT
 repository-code: "https://github.com/pragyaangaur/Zap-Or-Deal"
 keywords:
@@ -13,3 +15,4 @@ keywords:
   - multi-agent
   - model welfare
   - pain axis
+  - preregistration
